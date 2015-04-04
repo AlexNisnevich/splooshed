@@ -149,6 +149,12 @@ canvas {
 	height: auto !important;
 }
 
+@media screen and (max-width: 400px) {
+	.graphsContainer div {
+		width: 95%;
+	}
+}
+
 .clearfix:after {
 	content: "";
 	display: table;
