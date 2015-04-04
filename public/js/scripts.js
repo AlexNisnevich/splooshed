@@ -46,7 +46,7 @@ $(document).ready(function() {
 				$("#foodWaterDataTable").append("<tr class='error'><td>" + data[i].parsed_input + "</td><td class='gallonCell'>Unknown <a title='" + data[i].error + "'>[?]</a></td></tr>");
 			}
 		}
-		$("#foodWaterDataTable").append('<tr><td class="transparentCell"></td><td class="totalCell">' + total + '</td></tr>');
+		$("#foodWaterDataTable").append('<tr><td class="transparentCell">Total:</td><td class="totalCell">' + total + '</td></tr>');
 	}
 
 	var worstFoodsOptions = { 

@@ -147,6 +147,13 @@ section:last-of-type {
 	text-align: center;
 }
 
+.transparentCell {
+	text-align: right;
+	color: #333;
+	font-size: 20px;
+	font-weight: bold;
+}
+
 .btn {
 	font-size: 18px;
 }
