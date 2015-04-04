@@ -86,8 +86,8 @@ section:nth-child(even) {
 
 #foodEntry, #recipeEntry {
 	display: inline-block;
-    text-align: center;
-    width: 100%;
+	text-align: center;
+	width: 100%;
 }
 
 .form-control {
@@ -135,11 +135,18 @@ section:nth-child(even) {
 .graphsContainer div {
 	float: left;
 	padding-left: 20px;
+	width: 48%;
 }
 
 .graphsContainer div:nth-child(even) {
 	float: right;
 	padding-right: 20px;
+}
+
+canvas {
+	width: 100% !important;
+	max-width: 800px;
+	height: auto !important;
 }
 
 .clearfix:after {
