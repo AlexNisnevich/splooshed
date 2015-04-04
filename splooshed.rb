@@ -1,6 +1,3 @@
-# bundle install
-# bundle exec splooshed.rb
-
 require 'open-uri'
 require 'json'
 require 'yaml'
