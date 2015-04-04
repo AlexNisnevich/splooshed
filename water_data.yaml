@@ -19,6 +19,8 @@ synonyms:
   pepper powder: chili
   black pepper: chili
   garlic cloves: garlic
+  lime: lemons  # (close enough)
+  vegetable oil: canola oil  # (let's just assume here)
 data:
   wheat:
     gallons_per_kg: 532.0222084
@@ -304,6 +306,8 @@ data:
     gallons_per_kg: 217.8175216
   lemons:
     gallons_per_kg: 186.9503327
+  lemon juice:
+    gallons_per_kg: 258.38  # an approximation from apples : apple juice :: lemons : lemon juice
   grapefruit:
     gallons_per_kg: 147.3471469
   apples, fresh:

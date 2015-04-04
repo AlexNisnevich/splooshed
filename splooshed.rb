@@ -30,7 +30,8 @@ VOLUME_CONVERSIONS = {
   "tbsp->tsp" => 3.0,
   "servings->medium" => 1.0,
   "servings->med" => 1.0,
-  "medium->fruit" => 1.0
+  "medium->fruit" => 1.0,
+  "large->pepper" => 1.0
 }
 
 IGNORED_FOOD_GROUPS = [
@@ -68,7 +69,19 @@ def parse_recipe_line(line)
     preprocessed_line = preprocess_recipe_line(line)
 
     # if Ingreedy parse fails, try again with everything before first number removed
-    result = Ingreedy.parse(preprocessed_line) rescue Ingreedy.parse(preprocessed_line.sub(/.*?(?=[0-9])/im, ""))
+    begin
+      result = Ingreedy.parse(preprocessed_line) rescue Ingreedy.parse(preprocessed_line.sub(/.*?(?=[0-9])/im, ""))
+    rescue
+      if preprocessed_line.split(" ").length == 1 || preprocessed_line.include?("optional")  # no quantity/amount - probably negligible
+        return {
+          :success => true,
+          :parsed_input => preprocessed_line,
+          :gallons => 0.0
+        }
+      else
+        throw "Unable to parse line: #{preprocessed_line}"
+      end
+    end
 
     puts "Parsed as: #{result.amount}, #{result.unit}, #{result.ingredient}"
     food_name = result.ingredient.to_s.gsub(/\(.*\)/, "").strip  # remove everything inside parentheses
@@ -169,7 +182,7 @@ def measure_conversion(found_measure, expected_measure)
     1
   elsif VOLUME_CONVERSIONS.include? "#{found_measure}->#{expected_measure}"
     1.0 / VOLUME_CONVERSIONS["#{found_measure}->#{expected_measure}"]
-  elsif VOLUME_CONVERSIONS["#{expected_measure}->#{found_measure}"]
+  elsif VOLUME_CONVERSIONS.include? "#{expected_measure}->#{found_measure}"
     VOLUME_CONVERSIONS["#{expected_measure}->#{found_measure}"]
   else
     nil
