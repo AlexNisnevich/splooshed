@@ -3,9 +3,11 @@
 
 require 'open-uri'
 require 'json'
+require 'yaml'
 
 require 'ingreedy'
 require 'dalli'
+require 'fuzzy_match'
 
 USDA_API_KEY = "nkmsGMj3ChXLsbIBy22EwbORKK1BloEzmXFo5UdT"
 
@@ -34,38 +36,73 @@ IGNORED_FOOD_GROUPS = [
 ]
 
 DUMMY_WORDS = [
-  "about"
+  "about",
+  "and",
+  "fresh",
+  "minced",
+  "peeled",
+  "cut",
+  "chopped"
 ]
 
 options = { :namespace => "app_v1", :compress => true }
 $dc = Dalli::Client.new('localhost:11211', options)
 
+def load_water_data 
+  data = YAML.load(open("water_data.yaml"))
+  data["synonyms"].each do |synonym, definition|
+    data["data"][synonym] = data["data"][definition]
+  end
+  data["data"]
+end
+
+$water_data = load_water_data
+
 def parse_recipe_line(line)
+  puts "----------------------------------------------------"
   begin
     result = Ingreedy.parse(preprocess_recipe_line(line))
     puts "Parsed as: #{result.amount}, #{result.unit}, #{result.ingredient}"
-    weight_in_grams = result.amount * weight_by_food(result.ingredient, result.unit)
+    food_name = result.ingredient.to_s.gsub(/\(.*\)/, "").strip  # remove everything inside parentheses
+    weight_in_kg = result.amount * weight_by_food_grams(food_name, result.unit) / 1000
+    gallons_water_per_kg = lookup_gallons_water_per_kg_by_food(food_name)
     {
       :success => true,
-      :food => result.ingredient,
-      :weight_in_kg => weight_in_grams / 1000.0
+      :input => line,
+      :food => food_name,
+      :gallons => gallons_water_per_kg * weight_in_kg,
+      :weight_in_kg => weight_in_kg,
+      :gallons_water_per_kg => gallons_water_per_kg
     }
   rescue => e
+    puts e
     {
       :success => false,
-      :error => e.message
+      :error => e.message,
+      :input => line
     }
+  end
+end
+
+def lookup_gallons_water_per_kg_by_food(food_name)
+  key = FuzzyMatch.new($water_data.keys, :threshold => 0.2).find(food_name)
+  key = FuzzyMatch.new($water_data.keys, :threshold => 0.2).find(food_name.split(" ").last) unless key
+  if key
+    puts "Water usage record found matching #{food_name}: #{key}"
+    $water_data[key]["gallons_per_kg"]
+  else
+    throw "No water usage data found for food: #{food_name}"
   end
 end
 
 def preprocess_recipe_line(line)
   line
     .downcase  # convert to lowercase for convenience
-    .split(" ").reject {|w| DUMMY_WORDS.include? w}.join(" ")  # remove dummy words like "about"
+    .split(" ").reject {|w| DUMMY_WORDS.include?(w) }.join(" ")  # remove dummy words like "about"
     .split(",").first  # remove everything after commas
 end
 
-def weight_by_food(food_name, unit)
+def weight_by_food_grams(food_name, unit)
   if WEIGHTS_TO_GRAMS.include? unit
     # unit is a unit of weight - convert it to grams here
     WEIGHTS_TO_GRAMS[unit]

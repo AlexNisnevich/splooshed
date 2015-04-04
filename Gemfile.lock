@@ -10,6 +10,7 @@ GEM
   specs:
     blankslate (2.1.2.4)
     dalli (2.7.4)
+    fuzzy_match (2.1.0)
     parslet (1.5.0)
       blankslate (~> 2.0)
     rack (1.6.0)
@@ -26,5 +27,6 @@ PLATFORMS
 
 DEPENDENCIES
   dalli
+  fuzzy_match
   ingreedy!
   sinatra

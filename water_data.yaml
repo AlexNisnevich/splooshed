@@ -1,0 +1,419 @@
+synonyms:
+  flour: wheat flour
+  bread: wheat bread
+  pasta: wheat pasta
+  starch: wheat starch
+  gluten: wheat gluten
+  white rice: rice
+  coco yam: taro
+  sugar: refined sugar
+  "white sugar": refined sugar
+  "brown sugar": raw sugar
+  "horse beans": broad beans
+  chickpeas: chick peas
+  garbanzo beans: chick peas
+  "green tea": tea
+  "black tea": tea
+  kiwifruit: kiwi
+  scallion: onions  # (close enough)
+data:
+  wheat:
+    gallons_per_kg: 532.0222084
+  wheat flour:
+    gallons_per_kg: 538.4286061
+  wheat bread:
+    gallons_per_kg: 468.2494314
+  wheat pasta:
+    gallons_per_kg: 538.4286061
+  wheat pellets:
+    gallons_per_kg: 592.8829865
+  wheat starch:
+    gallons_per_kg: 418.1630494
+  wheat gluten:
+    gallons_per_kg: 1219.836361
+  rice:
+    gallons_per_kg: 487.1774245
+  brown rice:
+    gallons_per_kg: 632.4861722
+  rice flour:
+    gallons_per_kg: 765.2733244
+  rice meal:
+    gallons_per_kg: 649.3757661
+  barley:
+    gallons_per_kg: 414.3774508
+  malt:
+    gallons_per_kg: 567.8397955
+  beer:
+    gallons_per_kg: 86.77756875
+  corn:
+    gallons_per_kg: 355.8462718
+  corn flour:
+    gallons_per_kg: 364.8734686
+  corn meal:
+    gallons_per_kg: 314.7870866
+  corn starch:
+    gallons_per_kg: 486.5950248
+  corn oil:
+    gallons_per_kg: 749.8397299
+  rye:
+    gallons_per_kg: 449.6126381
+  rye flour:
+    gallons_per_kg: 562.0157976
+  oats:
+    gallons_per_kg: 520.6654125
+  oatmeal:
+    gallons_per_kg: 738.482934
+  millet:
+    gallons_per_kg: 1303.99313
+  sorghum:
+    gallons_per_kg: 887.5772803
+  buckwheat:
+    gallons_per_kg: 914.9500705
+  potato:
+    gallons_per_kg: 83.5743699
+  potato flour:
+    gallons_per_kg: 418.1630494
+  potato flakes:
+    gallons_per_kg: 304.0126905
+  potato starch:
+    gallons_per_kg: 440.2942414
+  sweet potato:
+    gallons_per_kg: 111.5295598
+  cassava:
+    gallons_per_kg: 164.2367408
+  tapioca:
+    gallons_per_kg: 820.6013045
+  cassava flour:
+    gallons_per_kg: 546.873403
+  dried cassava:
+    gallons_per_kg: 468.8318311
+  cassava starch:
+    gallons_per_kg: 656.3645636
+  taro:
+    gallons_per_kg: 176.4671364
+  yams:
+    gallons_per_kg: 99.88156403
+  sugar cane:
+    gallons_per_kg: 61.15197798
+  raw sugar:
+    gallons_per_kg: 485.1390253
+  refined sugar:
+    gallons_per_kg: 518.9182131
+  fructose:
+    gallons_per_kg: 518.9182131
+  cane molasses:
+    gallons_per_kg: 153.4623447
+  sugar beet:
+    gallons_per_kg: 38.43838616
+  beet sugar:
+    gallons_per_kg: 251.8879093
+  bean:
+    gallons_per_kg: 1471.43307
+  broad bean:
+    gallons_per_kg: 587.6413884
+  peas:
+    gallons_per_kg: 576.2845925
+  chick peas:
+    gallons_per_kg: 1216.341962
+  cow peas:
+    gallons_per_kg: 2011.026476
+  pigeon peas:
+    gallons_per_kg: 1599.852224
+  lentils:
+    gallons_per_kg: 1710.508184
+  cashews:
+    gallons_per_kg: 4140.280109
+  chestnuts:
+    gallons_per_kg: 800.7997116
+  almonds:
+    gallons_per_kg: 4686.862312
+  walnuts:
+    gallons_per_kg: 2702.335027
+  pistachios:
+    gallons_per_kg: 3308.904408
+  kola nuts:
+    gallons_per_kg: 6811.456747
+  hazelnuts:
+    gallons_per_kg: 3061.966897
+  areca nuts:
+    gallons_per_kg: 3251.246829
+  soya beans:
+    gallons_per_kg: 624.623775
+  soya sauce:
+    gallons_per_kg: 178.5055357
+  soya paste:
+    gallons_per_kg: 166.56634
+  soya curd:
+    gallons_per_kg: 734.6973354
+  soy milk:
+    gallons_per_kg: 1095.785205
+  soybean flour:
+    gallons_per_kg: 734.6973354
+  soybean oil:
+    gallons_per_kg: 1220.127561
+  soybean oilcake:
+    gallons_per_kg: 518.0446134
+  peanuts:
+    gallons_per_kg: 1157.228383
+  peanut oil:
+    gallons_per_kg: 2192.44401
+  peanut oilcake:
+    gallons_per_kg: 432.1406444
+  coconut:
+    gallons_per_kg: 782.4541182
+  copra:
+    gallons_per_kg: 609.4813805
+  coconut oil:
+    gallons_per_kg: 1307.487529
+  coconut oilcake:
+    gallons_per_kg: 242.8607125
+  oil palm:
+    gallons_per_kg: 319.7374848
+  palm nuts:
+    gallons_per_kg: 835.1612992
+  palm oil:
+    gallons_per_kg: 1447.554679
+  palm kernel oil:
+    gallons_per_kg: 1572.770634
+  palm nut/kernel oilcake:
+    gallons_per_kg: 242.5695126
+  olives:
+    gallons_per_kg: 877.9676838
+  virgin olive oil:
+    gallons_per_kg: 4202.305687
+  olive oil:
+    gallons_per_kg: 4288.209656
+  castor oil seed:
+    gallons_per_kg: 2881.714162
+  castor oil:
+    gallons_per_kg: 7204.285405
+  sunflower seed:
+    gallons_per_kg: 980.178847
+  sunflower seed oil:
+    gallons_per_kg: 1977.829688
+  sunflower seed oilcake:
+    gallons_per_kg: 394.8670578
+  rapeseed:
+    gallons_per_kg: 661.3149618
+  canola oil:
+    gallons_per_kg: 1252.450749
+  rape seed oilcake:
+    gallons_per_kg: 324.6878831
+  safflower seed:
+    gallons_per_kg: 2102.754443
+  sesame seed:
+    gallons_per_kg: 2728.834217
+  sesame oil:
+    gallons_per_kg: 6346.119314
+  mustard seed:
+    gallons_per_kg: 817.9805054
+  poppy seed:
+    gallons_per_kg: 637.1453705
+  melon seed:
+    gallons_per_kg: 1509.580256
+  linseed:
+    gallons_per_kg: 1504.921058
+  linseed oil, refined:
+    gallons_per_kg: 2741.647013
+  linseed oilcake:
+    gallons_per_kg: 896.0220773
+  hempseed:
+    gallons_per_kg: 1073.071614
+  cabbage:
+    gallons_per_kg: 81.53597063
+  rutabaga:
+    gallons_per_kg: 81.53597063
+  kohlrabi:
+    gallons_per_kg: 81.53597063
+  artichoke:
+    gallons_per_kg: 238.2015142
+  asparagus:
+    gallons_per_kg: 626.0797745
+  lettuce:
+    gallons_per_kg: 69.01437514
+  spinach:
+    gallons_per_kg: 85.03036938
+  tomato:
+    gallons_per_kg: 62.31677756
+  tomato juice:
+    gallons_per_kg: 77.750372
+  concentrated tomato juice:
+    gallons_per_kg: 311.2926879
+  tomato paste:
+    gallons_per_kg: 248.9759103
+  tomato ketchup:
+    gallons_per_kg: 155.500744
+  tomato puree:
+    gallons_per_kg: 207.6255252
+  peeled tomatoes:
+    gallons_per_kg: 77.750372
+  tomato, dried:
+    gallons_per_kg: 1245.170752
+  broccoli:
+    gallons_per_kg: 82.99197011
+  cauliflower:
+    gallons_per_kg: 82.99197011
+  brussels sprouts:
+    gallons_per_kg: 82.99197011
+  pumpkins:
+    gallons_per_kg: 97.84316476
+  squash:
+    gallons_per_kg: 97.84316476
+  gourds:
+    gallons_per_kg: 97.84316476
+  cucumber:
+    gallons_per_kg: 102.793563
+  eggplants:
+    gallons_per_kg: 105.414362
+  onions:
+    gallons_per_kg: 79.20637147
+  shallots:
+    gallons_per_kg: 79.20637147
+  onions, dried:
+    gallons_per_kg: 100.4639638
+  garlic:
+    gallons_per_kg: 171.5167382
+  garlic powder:
+    gallons_per_kg: 659.5677625
+  beans, green:
+    gallons_per_kg: 163.3631412
+  peas, green:
+    gallons_per_kg: 173.2639376
+  string beans:
+    gallons_per_kg: 159.2863426
+  carrots:
+    gallons_per_kg: 56.78397955
+  turnips:
+    gallons_per_kg: 56.78397955
+  okra:
+    gallons_per_kg: 167.7311396
+  maize, green:
+    gallons_per_kg: 203.8399266
+  carobs:
+    gallons_per_kg: 1628.972213
+  bananas:
+    gallons_per_kg: 230.0479171
+  plantains:
+    gallons_per_kg: 466.502232
+  oranges:
+    gallons_per_kg: 163.0719413
+  orange juice:
+    gallons_per_kg: 296.4414932
+  tangerines:
+    gallons_per_kg: 217.8175216
+  lemons:
+    gallons_per_kg: 186.9503327
+  grapefruit:
+    gallons_per_kg: 147.3471469
+  apples, fresh:
+    gallons_per_kg: 239.3663138
+  apples, dried:
+    gallons_per_kg: 1993.845682
+  apple juice:
+    gallons_per_kg: 332.2590803
+  pears:
+    gallons_per_kg: 268.4863033
+  apricots:
+    gallons_per_kg: 374.774265
+  sour cherries:
+    gallons_per_kg: 410.883052
+  cherries:
+    gallons_per_kg: 467.0846318
+  peaches:
+    gallons_per_kg: 264.9919046
+  nectarines:
+    gallons_per_kg: 264.9919046
+  sloes:
+    gallons_per_kg: 634.8157714
+  plums:
+    gallons_per_kg: 634.8157714
+  strawberries:
+    gallons_per_kg: 101.0463636
+  raspberries:
+    gallons_per_kg: 120.2655567
+  gooseberries:
+    gallons_per_kg: 153.1711448
+  currants:
+    gallons_per_kg: 145.3087477
+  blueberries:
+    gallons_per_kg: 246.0639114
+  cranberries:
+    gallons_per_kg: 80.37117105
+  grapes:
+    gallons_per_kg: 177.0495362
+  grapefruit juice:
+    gallons_per_kg: 196.5599292
+  wine:
+    gallons_per_kg: 253.0527089
+  watermelons:
+    gallons_per_kg: 68.43197535
+  figs:
+    gallons_per_kg: 975.5196487
+  mangoes:
+    gallons_per_kg: 524.1598112
+  avocados:
+    gallons_per_kg: 576.8669922
+  pineapples:
+    gallons_per_kg: 74.25597326
+  pineapple (juice:
+    gallons_per_kg: 370.6974665
+  dates:
+    gallons_per_kg: 663.0621612
+  cashew (apple:
+    gallons_per_kg: 1104.521202
+  kiwi:
+    gallons_per_kg: 149.6767461
+  papayas:
+    gallons_per_kg: 133.9519518
+  roasted coffee:
+    gallons_per_kg: 5510.958015
+  cocoa (beans:
+    gallons_per_kg: 5803.03151
+  cocoa paste:
+    gallons_per_kg: 7058.103058
+  cocoa butter:
+    gallons_per_kg: 9882.742041
+  cocoa powder:
+    gallons_per_kg: 4553.20156
+  chocolate:
+    gallons_per_kg: 5007.473397
+  tea:
+    gallons_per_kg: 2578.866271
+  hop cones:
+    gallons_per_kg: 1183.727574
+  hop:
+    gallons_per_kg: 4734.619095
+  pepper:
+    gallons_per_kg: 2216.322402
+  chili:
+    gallons_per_kg: 2144.687228
+  vanilla beans:
+    gallons_per_kg: 36838.24273
+  cinnamon:
+    gallons_per_kg: 4521.169572
+  cloves:
+    gallons_per_kg: 17822.88958
+  nutmeg:
+    gallons_per_kg: 9993.689201
+  anise:
+    gallons_per_kg: 2411.135132
+  coriander:
+    gallons_per_kg: 2411.135132
+  ginger:
+    gallons_per_kg: 482.5182262
+  peppermint:
+    gallons_per_kg: 83.8655698
+  flax:
+    gallons_per_kg: 1013.666835
+  hemp:
+    gallons_per_kg: 712.5661434
+  jute:
+    gallons_per_kg: 758.5757268
+  ramie:
+    gallons_per_kg: 1312.437927
+  sisal:
+    gallons_per_kg: 2050.338462
+  agave:
+    gallons_per_kg: 1907.068113
+  water:
+    gallons_per_kg: 3.79
