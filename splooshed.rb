@@ -22,11 +22,16 @@ VOLUME_TO_CANONICAL_VOLUME = {
 }
 
 VOLUME_CONVERSIONS = {
+  "cup->tablespoon" => 16.0,
   "cup->tbsp" => 16.0,
+  "cup->teaspoon" => 48.0,
   "cup->tsp" => 48.0,
+  "tablespoon->teaspoon" => 3.0,
   "tbsp->tsp" => 3.0,
   "servings->medium" => 1.0,
-  "servings->med" => 1.0
+  "servings->med" => 1.0,
+  "medium->fruit" => 1.0,
+  "large->pepper" => 1.0
 }
 
 IGNORED_FOOD_GROUPS = [
@@ -35,13 +40,8 @@ IGNORED_FOOD_GROUPS = [
 ]
 
 DUMMY_WORDS = [
-  "about",
-  "and",
-  "fresh",
-  "minced",
-  "peeled",
-  "cut",
-  "chopped"
+  "about", "and", "fresh", "minced", "peeled", "cut", "chopped", "packed", "shaved", "freshly",
+  "squeezed", "Italian", "leaves", "finely"
 ]
 
 $dc = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "localhost:11211").split(","),
@@ -66,7 +66,23 @@ $water_data = load_water_data
 def parse_recipe_line(line)
   puts "----------------------------------------------------"
   begin
-    result = Ingreedy.parse(preprocess_recipe_line(line))
+    preprocessed_line = preprocess_recipe_line(line)
+
+    # if Ingreedy parse fails, try again with everything before first number removed
+    begin
+      result = Ingreedy.parse(preprocessed_line) rescue Ingreedy.parse(preprocessed_line.sub(/.*?(?=[0-9])/im, ""))
+    rescue
+      if preprocessed_line.split(" ").length == 1 || preprocessed_line.include?("optional")  # no quantity/amount - probably negligible
+        return {
+          :success => true,
+          :parsed_input => preprocessed_line,
+          :gallons => 0.0
+        }
+      else
+        throw "Unable to parse line: #{preprocessed_line}"
+      end
+    end
+
     puts "Parsed as: #{result.amount}, #{result.unit}, #{result.ingredient}"
     food_name = result.ingredient.to_s.gsub(/\(.*\)/, "").strip  # remove everything inside parentheses
     weight_in_kg = result.amount * weight_by_food_grams(food_name, result.unit) / 1000.0
@@ -78,7 +94,7 @@ def parse_recipe_line(line)
     {
       :success => true,
       :input => line,
-      :parsed_input => preprocess_recipe_line(line).gsub(result.ingredient, food_name),
+      :parsed_input => preprocessed_line.gsub(result.ingredient, food_name),
       :food => food_name,
       :gallons => gallons_water_per_kg * weight_in_kg,
       :weight_in_kg => weight_in_kg,
@@ -90,7 +106,7 @@ def parse_recipe_line(line)
       :success => false,
       :error => e.message,
       :input => line,
-      :parsed_input => preprocess_recipe_line(line).gsub(result.ingredient, food_name)
+      :parsed_input => (preprocessed_line.gsub(result.ingredient, food_name) rescue preprocessed_line)
     }
   end
 end
@@ -159,11 +175,14 @@ def get_and_cache_measures_for_food(ndbno)
 end
 
 def measure_conversion(found_measure, expected_measure)
+  found_measure = found_measure.gsub(/\(.*\)/, "").strip
+  expected_measure = expected_measure.gsub(/\(.*\)/, "").strip
+
   if found_measure.include? expected_measure
     1
   elsif VOLUME_CONVERSIONS.include? "#{found_measure}->#{expected_measure}"
     1.0 / VOLUME_CONVERSIONS["#{found_measure}->#{expected_measure}"]
-  elsif VOLUME_CONVERSIONS["#{expected_measure}->#{found_measure}"]
+  elsif VOLUME_CONVERSIONS.include? "#{expected_measure}->#{found_measure}"
     VOLUME_CONVERSIONS["#{expected_measure}->#{found_measure}"]
   else
     nil
