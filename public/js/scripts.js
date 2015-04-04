@@ -12,7 +12,9 @@ $(document).ready(function() {
 			$("#foodWaterDataTable").empty();
 			$("#foodWaterDataTable").append('<tr><th class="input">Input</th><th class="gallons">Gallons of Water</th></tr>');
 			if (data.success) {
-				$("#foodWaterDataTable").append("<tr><td>" + data.input + "</td><td>" + data.gallons + "</td></tr>");
+				$("#foodWaterDataTable").append("<tr><td>" + data.parsed_input + "</td><td>" + data.gallons + "</td></tr>");
+			} else {
+				$("#foodWaterDataTable").append("<tr class='error'><td>" + data.parsed_input + "</td><td>" + data.error + "</td></tr>");
 			}
 		});
 	});
@@ -29,7 +31,9 @@ $(document).ready(function() {
 		$("#foodWaterDataTable").append('<tr><th class="input">Input</th><th class="gallons">Gallons of Water</th></tr>');
 		for (var i = 0; i < data.length; i++) {
 			if (data[i].success) {
-				$("#foodWaterDataTable").append("<tr><td>" + data[i].input + "</td><td>" + data[i].gallons + "</td></tr>");
+				$("#foodWaterDataTable").append("<tr><td>" + data[i].parsed_input + "</td><td>" + data[i].gallons + "</td></tr>");
+			} else {
+				$("#foodWaterDataTable").append("<tr class='error'><td>" + data[i].parsed_input + "</td><td>Unknown <a title='" + data[i].error + "'>[?]</a></td></tr>");
 			}
 		}
 	}

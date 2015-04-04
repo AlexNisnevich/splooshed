@@ -69,11 +69,16 @@ def parse_recipe_line(line)
     result = Ingreedy.parse(preprocess_recipe_line(line))
     puts "Parsed as: #{result.amount}, #{result.unit}, #{result.ingredient}"
     food_name = result.ingredient.to_s.gsub(/\(.*\)/, "").strip  # remove everything inside parentheses
-    weight_in_kg = result.amount * weight_by_food_grams(food_name, result.unit) / 1000
-    gallons_water_per_kg = lookup_gallons_water_per_kg_by_food(food_name)
+    weight_in_kg = result.amount * weight_by_food_grams(food_name, result.unit) / 1000.0
+
+    gallons_lookup_result = lookup_gallons_water_per_kg_by_food(food_name)
+    gallons_water_per_kg = gallons_lookup_result[:gallons_per_kg]
+    food_name = gallons_lookup_result[:matched_name]
+    
     {
       :success => true,
       :input => line,
+      :parsed_input => preprocess_recipe_line(line).gsub(result.ingredient, food_name),
       :food => food_name,
       :gallons => gallons_water_per_kg * weight_in_kg,
       :weight_in_kg => weight_in_kg,
@@ -84,7 +89,8 @@ def parse_recipe_line(line)
     {
       :success => false,
       :error => e.message,
-      :input => line
+      :input => line,
+      :parsed_input => preprocess_recipe_line(line).gsub(result.ingredient, food_name)
     }
   end
 end
@@ -94,7 +100,10 @@ def lookup_gallons_water_per_kg_by_food(food_name)
   key = FuzzyMatch.new($water_data.keys, :threshold => 0.2).find(food_name.split(" ").last) unless key
   if key
     puts "Water usage record found matching #{food_name}: #{key}"
-    $water_data[key]["gallons_per_kg"]
+    {
+      :matched_name => key,
+      :gallons_per_kg => $water_data[key]["gallons_per_kg"]
+    }
   else
     throw "No water usage data found for food: #{food_name}"
   end
@@ -131,7 +140,7 @@ def weight_by_food_grams(food_name, unit)
       puts "Unit of measure selected: #{measure["label"]} [#{expected_measure} * #{conversion}]"
       measure["eqv"] * conversion
     rescue
-      throw "Unknown unit of measurement: '#{unit} of #{food_name}'"
+      throw "Unknown unit of measurement: #{unit} of #{food_name}"
     end
   end
 end
