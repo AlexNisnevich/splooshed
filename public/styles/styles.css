@@ -84,6 +84,14 @@ section:nth-child(even) {
 	padding: 30px;
 }
 
+#inputFormGroup {
+	width: 58%;
+}
+
+#inputRecipe {
+	width: 100%;
+}
+
 #foodEntry, #recipeEntry {
 	display: inline-block;
 	text-align: center;
@@ -122,6 +130,10 @@ section:nth-child(even) {
 
 #foodWaterDataTable .error td {
 	background-color: rgb(241, 141, 141);
+}
+
+.transparentCell {
+	background-color: transparent;
 }
 
 .btn {

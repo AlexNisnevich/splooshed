@@ -12,7 +12,11 @@ $(document).ready(function() {
 			$("#foodWaterDataTable").empty();
 			$("#foodWaterDataTable").append('<tr><th class="input">Input</th><th class="gallons">Gallons of Water</th></tr>');
 			if (data.success) {
-				$("#foodWaterDataTable").append("<tr><td>" + data.parsed_input + "</td><td>" + Math.round(data.gallons * 100) / 100 + "</td></tr>");
+				var outGallons = Math.round(data.gallons * 100) / 100;
+				if (data.gallons = 0) {
+					outGallons = "0.0";
+				}
+				$("#foodWaterDataTable").append("<tr><td>" + data.parsed_input + "</td><td>" + outGallons + "</td></tr>");
 			} else {
 				$("#foodWaterDataTable").append("<tr class='error'><td>" + data.parsed_input + "</td><td>" + data.error + "</td></tr>");
 			}
@@ -27,15 +31,22 @@ $(document).ready(function() {
 	});
 
 	var outputData = function(data) {
+		var total = 0;
 		$("#foodWaterDataTable").empty();
 		$("#foodWaterDataTable").append('<tr><th class="input">Input</th><th class="gallons">Gallons of Water</th></tr>');
 		for (var i = 0; i < data.length; i++) {
 			if (data[i].success) {
-				$("#foodWaterDataTable").append("<tr><td>" + data[i].parsed_input + "</td><td>" + Math.round(data[i].gallons * 100) / 100 + "</td></tr>");
+				var outGallons = Math.round(data[i].gallons * 100) / 100;
+				total = total + outGallons;
+				if (data[i].gallons = 0) {
+					outGallons = "0.0";
+				}
+				$("#foodWaterDataTable").append("<tr><td>" + data[i].parsed_input + "</td><td>" + outGallons + "</td></tr>");
 			} else {
 				$("#foodWaterDataTable").append("<tr class='error'><td>" + data[i].parsed_input + "</td><td>Unknown <a title='" + data[i].error + "'>[?]</a></td></tr>");
 			}
 		}
+		$("#foodWaterDataTable").append('<tr><td class="transparentCell"></td><td class="totalCell">' + total + '</td></tr>');
 	}
 
 	var worstFoodsOptions = { 
