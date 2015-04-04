@@ -138,7 +138,9 @@ section:last-of-type {
 
 .totalCell {
 	font-weight: bold;
-	text-align: right;
+	color: #333;
+	font-size: 20px;
+	text-align: center;
 }
 
 .gallonCell {
