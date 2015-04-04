@@ -178,8 +178,6 @@ data:
     gallons_per_kg: 1447.554679
   palm kernel oil:
     gallons_per_kg: 1572.770634
-  palm nut/kernel oilcake:
-    gallons_per_kg: 242.5695126
   olives:
     gallons_per_kg: 877.9676838
   virgin olive oil:
