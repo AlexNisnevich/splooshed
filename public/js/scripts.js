@@ -7,24 +7,29 @@ $(document).ready(function() {
 
 	// Food submission handling
 	$('#foodSubmit').click(function() {
-		$('.foodEntryResult').text($('#foodEntry').serialize());
+		// $('.foodEntryResult').text($('#foodEntry').serialize());
 		$.get('/food', $('#foodEntry').serialize(), function(data) {
-			outputData(data);
+			$("#foodWaterDataTable").empty();
+			$("#foodWaterDataTable").append('<tr><th class="input">Input</th><th class="gallons">Gallons of Water</th></tr>');
+			if (data.success) {
+				$("#foodWaterDataTable").append("<tr><td>" + data.input + "</td><td>" + data.gallons + "</td></tr>");
+			}
 		});
 	});
 
 	$('#recipeSubmit').click(function() {
-		$('.foodEntryResult').text($('#inputRecipe').val().replace("\n","\\n"));
+		// $('.foodEntryResult').text($('#inputRecipe').val().replace("\n","\\n"));
 		$.post('/recipe', $('#inputRecipe').val().replace("\n","\\n"), function(data) {
 			outputData(data);
 		});
 	});
 
 	var outputData = function(data) {
-		JSONdata = JSON.parse(data);
-		for (var i = 0; i < JSONdata.length; i++) {
-			if (JSONdata[i].success) {
-				$("#foodWaterDataTable").append("<tr><td>" + JSONdata[i].input + "</td><td>" + JSONdata[i].gallons + "</td></tr>");
+		$("#foodWaterDataTable").empty();
+		$("#foodWaterDataTable").append('<tr><th class="input">Input</th><th class="gallons">Gallons of Water</th></tr>');
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].success) {
+				$("#foodWaterDataTable").append("<tr><td>" + data[i].input + "</td><td>" + data[i].gallons + "</td></tr>");
 			}
 		}
 	}
