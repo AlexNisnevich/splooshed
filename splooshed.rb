@@ -24,7 +24,9 @@ VOLUME_TO_CANONICAL_VOLUME = {
 VOLUME_CONVERSIONS = {
   "cup->tbsp" => 16.0,
   "cup->tsp" => 48.0,
-  "tbsp->tsp" => 3.0
+  "tbsp->tsp" => 3.0,
+  "servings->medium" => 1.0,
+  "servings->med" => 1.0
 }
 
 IGNORED_FOOD_GROUPS = [
@@ -42,8 +44,14 @@ DUMMY_WORDS = [
   "chopped"
 ]
 
-options = { :namespace => "app_v1", :compress => true }
-$dc = Dalli::Client.new('localhost:11211', options)
+$dc = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "localhost:11211").split(","),
+                    {:username => ENV["MEMCACHIER_USERNAME"],
+                     :password => ENV["MEMCACHIER_PASSWORD"],
+                     :namespace => "app_v1",
+                     :failover => true,
+                     :socket_timeout => 1.5,
+                     :socket_failure_delay => 0.2
+                    })
 
 def load_water_data 
   data = YAML.load(open("water_data.yaml"))
