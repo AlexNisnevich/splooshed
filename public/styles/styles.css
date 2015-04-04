@@ -73,7 +73,12 @@ section {
 }
 
 section:nth-child(even) {
-	background-color: #88A2B9;	
+	background-color: #88A2B9;
+}
+
+section:last-of-type {
+	background-color: #CCC;
+	min-height: 150px;
 }
 
 .droughtStats {
@@ -119,21 +124,25 @@ section:nth-child(even) {
 }
 
 #foodWaterDataTable th.input {
-	width: 80%;
-	overflow-x: ellipsis;
+	width: 85%;
 }
 
 #foodWaterDataTable th.gallons {
-	width: 20%;
-	overflow-x: ellipsis;
+	width: 15%;
+	overflow-x: hidden;
 }
 
 #foodWaterDataTable .error td {
 	background-color: rgb(241, 141, 141);
 }
 
-.transparentCell {
-	background-color: transparent;
+.totalCell {
+	font-weight: bold;
+	text-align: right;
+}
+
+.gallonCell {
+	text-align: center;
 }
 
 .btn {
@@ -165,6 +174,12 @@ canvas {
 	.graphsContainer div {
 		width: 95%;
 	}
+}
+
+.copyright {
+	color: #555;
+	font-size: 12px;
+	margin: 0 auto;
 }
 
 .clearfix:after {

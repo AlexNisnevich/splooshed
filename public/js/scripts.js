@@ -16,9 +16,9 @@ $(document).ready(function() {
 				if (data.gallons = 0) {
 					outGallons = "0.0";
 				}
-				$("#foodWaterDataTable").append("<tr><td>" + data.parsed_input + "</td><td>" + outGallons + "</td></tr>");
+				$("#foodWaterDataTable").append("<tr><td>" + data.parsed_input + "</td><td class='gallonCell'>" + outGallons + "</td></tr>");
 			} else {
-				$("#foodWaterDataTable").append("<tr class='error'><td>" + data.parsed_input + "</td><td>" + data.error + "</td></tr>");
+				$("#foodWaterDataTable").append("<tr class='error'><td>" + data.parsed_input + "</td><td class='gallonCell'>" + data.error + "</td></tr>");
 			}
 		});
 	});
@@ -41,9 +41,9 @@ $(document).ready(function() {
 				if (data[i].gallons = 0) {
 					outGallons = "0.0";
 				}
-				$("#foodWaterDataTable").append("<tr><td>" + data[i].parsed_input + "</td><td>" + outGallons + "</td></tr>");
+				$("#foodWaterDataTable").append("<tr><td>" + data[i].parsed_input + "</td><td class='gallonCell'>" + outGallons + "</td></tr>");
 			} else {
-				$("#foodWaterDataTable").append("<tr class='error'><td>" + data[i].parsed_input + "</td><td>Unknown <a title='" + data[i].error + "'>[?]</a></td></tr>");
+				$("#foodWaterDataTable").append("<tr class='error'><td>" + data[i].parsed_input + "</td><td class='gallonCell'>Unknown <a title='" + data[i].error + "'>[?]</a></td></tr>");
 			}
 		}
 		$("#foodWaterDataTable").append('<tr><td class="transparentCell"></td><td class="totalCell">' + total + '</td></tr>');
