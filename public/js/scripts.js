@@ -19,7 +19,7 @@ $(document).ready(function() {
 
 	$('#recipeSubmit').click(function() {
 		// $('.foodEntryResult').text($('#inputRecipe').val().replace("\n","\\n"));
-		$.post('/recipe', $('#inputRecipe').val().replace("\n","\\n"), function(data) {
+		$.post('/recipe', $('#inputRecipe').val(), function(data) {
 			outputData(data);
 		});
 	});
