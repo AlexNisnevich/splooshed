@@ -24,7 +24,9 @@ VOLUME_TO_CANONICAL_VOLUME = {
 VOLUME_CONVERSIONS = {
   "cup->tbsp" => 16.0,
   "cup->tsp" => 48.0,
-  "tbsp->tsp" => 3.0
+  "tbsp->tsp" => 3.0,
+  "servings->medium" => 1.0,
+  "servings->med" => 1.0
 }
 
 IGNORED_FOOD_GROUPS = [
