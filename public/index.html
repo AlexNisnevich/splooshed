@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Splooshed</title>
+
+	<!-- JQuery JS -->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.easing.min.js"></script>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="styles/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="styles/scrolling-nav.css">
+
+	<!-- Bootstrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="js/scrolling-nav.js"></script>
+
+	<!-- Chart JS -->
+	<script src="js/ChartNew.js"></script>
+
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+	<!-- Splooshed CSS -->
+	<link rel="stylesheet" href="styles/styles.css">
+
+	<!-- Splooshed JS -->
+	<script src="js/scripts.js"></script>
+
+	<!-- Favicon -->
+	<	link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"></a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="#about" class="page-scroll">About</a>
+					</li>
+					<li>
+						<a href="#entry" class="page-scroll">Enter a Food</a>
+					</li>
+					<li>
+						<a href="#statistics" class="page-scroll">Statistics</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- About/Home -->
+	<section id="about">
+		<div class="title">
+			<h1>About</h1>
+		</div>
+		<div class="content">
+			<h2>Some Facts about California's Drought</h2>
+			<ul class="droughtStats">
+				<li>California is going through its worst drought in <strong>1200 years</strong>.</li>
+				<li>It is expected that within our lifetime California will go through <strong>a mega drought</strong>.</li>
+				<li><strong>80%</strong> of the amount of water available in California is used by agriculture.</li>
+				<li><strong>1%</strong> share of the California economy is produced by agriculture.</li>
+				<li>Poor families already spending <strong>1/5th of their household budget</strong> on food will be disproportionately affected by the drought.</li>
+				<li>As California continues to dry up, 17 communities are in danger of running out of water within the next <strong>60 to 120 days</strong>.</li>
+			</ul>
+			<h2>What We Hope to Do About It</h2>
+			<ol>
+				<li>Raise awareness about the disproportionate usage of water by California's agriculture industry</li>
+				<li>Make it easier to make informed decisions about food purchases</li>
+				<li>Identify the most water intensive crops and key agricultural offenders</li>
+			</ol>
+			<h2>What Splooshed Does About It</h2>
+			<p>Splooshed combines the USDA National Nutrient Database API and WaterFootprint.org crop water usage data to provide users with water consumption data for specific food ingredients or complete recipes.</p>
+		</div>
+	</section>
+
+	<!-- Enter a Food -->
+	<section id="entry">
+		<div class="title">
+			<h1>Enter a Food</h1>
+		</div>
+		<div class="content">
+			<p>Enter a single food below:</p>
+			<div class="foodEntryContainer">
+				<form id="foodEntry" class="form-inline">
+					<div class="form-group">
+						<label for="inputFood" class="sr-only">Food</label>
+						<input type="text" class="form-control" name="inputFood" id="inputFood" placeholder="Food">
+					</div>
+					<div class="form-group">
+						<label for="inputAmount" class="sr-only">Amount</label>
+						<input type="text" class="form-control" name="inputAmount" id="inputAmount" placeholder="Amount">
+					</div>
+					<select class="form-control" name="inputUnit">
+						<option>servings</option>
+						<option>grams</option>
+						<option>tsp</option>
+						<option>tbsp</option>
+						<option>lb</option>
+						<option>cups</option>
+						<option>oz</option>
+					</select>
+					<button id="foodSubmit" type="button" class="btn btn-default">Submit</button>
+				</form>
+			</div>
+			<p>or copy and paste a recipe into the text area below:</p>
+			<div class="foodEntryContainer">
+				<form id="recipeEntry" class="form-inline">
+					<div class="form-group">
+						<label for="inputRecipe" class="sr-only">Recipe</label>
+						<textarea class="form-control" name="inputRecipe" id="inputRecipe" placeholder="Recipe"></textarea>
+					</div>
+					<button id="recipeSubmit" type="button" class="btn btn-default">Submit</button>
+				</form>
+			</div>
+			<div class="foodEntryResult"></div>
+		</div>
+	</section>
+
+	<!-- Statistics -->
+	<section id="statistics">
+		<div class="title">
+			<h1>Statistics</h1>
+		</div>
+		<div class="content">
+			<div class="graphsContainer clearfix">
+				<div>
+					<canvas id="worstFoods" width="500" height="500"></canvas>
+				</div>
+				<div>
+					<canvas id="bestFoods" width="500" height="500"></canvas>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

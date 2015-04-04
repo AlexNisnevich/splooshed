@@ -1,0 +1,120 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	background-color: #B9CBDA;
+}
+
+h1 {
+	font-family: 'Roboto Slab', serif;
+	font-size: 28px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	color: #EEE;
+	font-weight: bold;
+}
+
+h2 {
+	font-family: 'Roboto', sans-serif;
+	font-size: 22px;
+	color: #EEE;
+}
+
+strong {
+	color: #556B7D;
+	font-size: 20px;
+}
+
+.navbar {
+	border: 0;
+}
+
+.navbar-inverse {
+	background-image: linear-gradient(to bottom, #556B7D 0%, #556B7D 100%);
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.open>a {
+	background-image: linear-gradient(to bottom, #222 0, #222 100%);
+}
+
+.navbar-inverse .navbar-brand {
+	background-image: url(../images/logo_test.png);
+	background-repeat: no-repeat;
+	width: 168px;
+	background-position-y: 6px;
+	opacity: 0.8;
+	transition: opacity 0.2s ease;
+	-webkit-transition: opacity 0.2s ease;
+	-moz-transition: opacity 0.2s ease;
+	-o-transition: opacity 0.2s ease;
+}
+
+.navbar-inverse .navbar-brand:hover {
+	opacity: 1;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
+	color: #EEE;
+}
+
+section {
+	color: #DDD;
+	width: 61%;
+	padding: 40px;
+	margin: 0 auto;
+	background-color: #728BA1;
+	min-height: 400px;
+	min-width: 200px;
+}
+
+@media screen and (max-width: 400px) {
+	section {
+		width: 100%;
+	}
+}
+
+section:nth-child(even) {
+	background-color: #88A2B9;	
+}
+
+.droughtStats {
+	list-style-image: url('../images/droplet_icon.png');
+}
+
+.foodEntryContainer {
+	padding: 30px;
+}
+
+#foodEntry, #recipeEntry {
+	display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.form-control {
+	height: 40px;
+	font-size: 18px;
+}
+
+.btn {
+	font-size: 18px;
+}
+
+.graphsContainer {
+	padding: 5px
+}
+
+.graphsContainer div {
+	float: left;
+	padding-left: 20px;
+}
+
+.graphsContainer div:nth-child(even) {
+	float: right;
+	padding-right: 20px;
+}
+
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
