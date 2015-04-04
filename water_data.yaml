@@ -16,11 +16,14 @@ synonyms:
   "black tea": tea
   kiwifruit: kiwi
   scallion: onions  # (close enough)
-  pepper powder: chili
-  black pepper: chili
+  pepper powder: pepper
+  black pepper: pepper
   garlic cloves: garlic
   lime: lemons  # (close enough)
   vegetable oil: canola oil  # (let's just assume here)
+  jalapeno: chili
+  "jalape??o": chili
+  "extra-virgin olive oil": olive oil
 data:
   wheat:
     gallons_per_kg: 532.0222084
@@ -186,10 +189,6 @@ data:
     gallons_per_kg: 4202.305687
   olive oil:
     gallons_per_kg: 4288.209656
-  castor oil seed:
-    gallons_per_kg: 2881.714162
-  castor oil:
-    gallons_per_kg: 7204.285405
   sunflower seed:
     gallons_per_kg: 980.178847
   sunflower seed oil:
@@ -360,11 +359,11 @@ data:
     gallons_per_kg: 576.8669922
   pineapples:
     gallons_per_kg: 74.25597326
-  pineapple (juice:
+  pineapple juice:
     gallons_per_kg: 370.6974665
   dates:
     gallons_per_kg: 663.0621612
-  cashew (apple:
+  cashew apple:
     gallons_per_kg: 1104.521202
   kiwi:
     gallons_per_kg: 149.6767461
@@ -372,7 +371,7 @@ data:
     gallons_per_kg: 133.9519518
   roasted coffee:
     gallons_per_kg: 5510.958015
-  cocoa (beans:
+  cocoa beans:
     gallons_per_kg: 5803.03151
   cocoa paste:
     gallons_per_kg: 7058.103058
@@ -384,10 +383,6 @@ data:
     gallons_per_kg: 5007.473397
   tea:
     gallons_per_kg: 2578.866271
-  hop cones:
-    gallons_per_kg: 1183.727574
-  hop:
-    gallons_per_kg: 4734.619095
   pepper:
     gallons_per_kg: 2216.322402
   chili:

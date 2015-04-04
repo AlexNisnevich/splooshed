@@ -31,7 +31,8 @@ VOLUME_CONVERSIONS = {
   "servings->medium" => 1.0,
   "servings->med" => 1.0,
   "medium->fruit" => 1.0,
-  "large->pepper" => 1.0
+  "large->pepper" => 1.0,
+  "large->cup chopped" => 1.0
 }
 
 IGNORED_FOOD_GROUPS = [
