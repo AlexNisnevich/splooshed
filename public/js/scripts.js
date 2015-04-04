@@ -9,16 +9,25 @@ $(document).ready(function() {
 	$('#foodSubmit').click(function() {
 		$('.foodEntryResult').text($('#foodEntry').serialize());
 		$.get('/food', $('#foodEntry').serialize(), function(data) {
-			$('.foodEntryResult').text(JSON.stringify(data));
+			outputData(data);
 		});
 	});
 
 	$('#recipeSubmit').click(function() {
 		$('.foodEntryResult').text($('#inputRecipe').val().replace("\n","\\n"));
 		$.post('/recipe', $('#inputRecipe').val().replace("\n","\\n"), function(data) {
-			$('.foodEntryResult').text(JSON.stringify(data));
+			outputData(data);
 		});
 	});
+
+	var outputData = function(data) {
+		JSONdata = JSON.parse(data);
+		for (var i = 0; i < JSONdata.length; i++) {
+			if (JSONdata[i].success) {
+				$("#foodWaterDataTable").append("<tr><td>" + JSONdata[i].input + "</td><td>" + JSONdata[i].gallons + "</td></tr>");
+			}
+		}
+	}
 
 	var worstFoodsOptions = { 
 		scaleFontColor: "#EEE", 
