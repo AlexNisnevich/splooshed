@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "Splooshed for CHOW",
+  "description": "Adds Splooshed water usage data to CHOW recipes",
+  "version": "1.0",
+  "permissions": [
+    "http://splooshed.herokuapps.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://www.chow.com/recipes/*"],
+      "css": [],
+      "js": ["jquery.js", "extension.js"]
+    }
+  ]
+}
