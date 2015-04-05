@@ -97,7 +97,7 @@ section:nth-child(even) {
 
 section:last-of-type {
 	background-color: #CCC;
-	min-height: 150px;
+	min-height: 100px;
 }
 
 .droughtStats {
@@ -207,7 +207,7 @@ canvas {
 .copyright {
 	color: #555;
 	font-size: 12px;
-	margin: 0 auto;
+	text-align: center;
 }
 
 .clearfix:after {
