@@ -5,7 +5,11 @@ var total = 0;
 $('.recipe-data').append('<li><span class="hd">Water Usage</span><span class="bd" id="totalWaterUsage" style="color: rgb(0, 146, 194);">0</span><span class="ft">Gallons</span></li>');
 
 $("[itemprop=ingredients]").map(function (i, x) { 
-  var recipeText = $(x).find(".amount").text() + " " + $(x).find(".name").text();
+  if ($(x).find(".amount").text() != "") {
+    var recipeText = $(x).find(".amount").text() + " " + $(x).find(".name").text();
+  } else {
+    var recipeText = $(x).text();
+  }
   $.post(splooshed + "/recipe_line", recipeText, function (data) {
     console.log(data);
     if (data.success) {
