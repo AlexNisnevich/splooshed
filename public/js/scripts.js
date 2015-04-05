@@ -110,7 +110,7 @@ $(document).ready(function() {
 	};
 	var worstFoodsctx = $("#worstFoods").get(0).getContext("2d");
 	var worstFoodsData = {
-		labels: ["Vanilla Beans", "Cloves", "Nutmeg", "Sesame Oil", "Cocoa Beans", "Roasted Coffee", "Chocolate", "Almonds", "Cinnamon", "Cashew Nuts"],
+		labels: ["Sesame Oil", "Roasted Coffee", "Chocolate", "Almonds", "Cashews", "Beef", "Pistachios", "Hazelnuts", "Sesame Seeds", "Tea Leaves"],
 		datasets: [
 			{
 				label: "Worst Foods by Water Requirements",
@@ -118,7 +118,7 @@ $(document).ready(function() {
 				strokeColor: "rgba(220,220,220,0.8)",
 				highlightFill: "rgba(220,220,220,0.75)",
 				highlightStroke: "rgba(220,220,220,1)",
-				data: [36838.24273, 17822.88958, 9993.689201, 6346.119314, 5803.03151, 5510.958015, 5007.473397, 4686.862312, 4521.169572, 4140.280109]
+				data: [6346.119314, 5510.958015, 5007.473397, 4686.862312, 4140.280109, 4071.93314, 3308.904408, 3061.966897, 2728.834217, 2578.866271]
 			}
 		]
 	};
@@ -146,7 +146,7 @@ $(document).ready(function() {
 	};
 	var bestFoodsctx = $("#bestFoods").get(0).getContext("2d");
 	var bestFoodsData = {
-		labels: ["Sugar Beet", "Carrots and Turnips", "Sugar Cane", "Tomatoes", "Watermelon", "Lettuce", "Pineapples", "Onions", "Cranberries", "Cabbage"],
+		labels: ["Carrots and Turnips", "Sugar Cane", "Tomatoes", "Watermelon", "Lettuce", "Pineapples", "Tomato Juice", "Onions", "Cranberries", "Cabbage", "Cauliflowers and Broccoli"],
 		datasets: [
 			{
 				label: "Best Foods by Water Requirements",
@@ -154,7 +154,7 @@ $(document).ready(function() {
 				strokeColor: "rgba(220,220,220,0.8)",
 				highlightFill: "rgba(220,220,220,0.75)",
 				highlightStroke: "rgba(220,220,220,1)",
-				data: [38.43838616, 56.78397955, 61.15197798, 62.31677756, 68.43197535, 69.01437514, 74.25597326, 79.20637147, 80.37117105, 81.53597063]
+				data: [56.78397955, 61.15197798, 62.31677756, 68.43197535, 69.01437514, 74.25597326, 77.750372, 79.20637147, 80.37117105, 81.53597063, 82.99197011]
 			}
 		]
 	};
