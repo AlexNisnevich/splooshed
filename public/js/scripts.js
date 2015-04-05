@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	// Change of active highlighting in navbar
-	$('.nav li').click(function() {
-		$('.active').removeClass('active');
-		$(this).addClass('active');
-	});
+//	$('.nav li').click(function() {
+//		$('.active').removeClass('active');
+//		$(this).addClass('active');
+//	});
 
 	// Food submission handling
 	$('#foodSubmit').click(function() {
@@ -40,7 +40,7 @@ $(document).ready(function() {
 
 	var topOfHome = $("#home").offset().top;
 	$(window).scroll(function() {
-		if( $(window).scrollTop() > topOfHome) {
+		if( $(window).scrollTop() + 10 > topOfHome) {
 			$('.active').removeClass('active');
 			$("#homeButton").addClass('active');
 		}
@@ -48,7 +48,7 @@ $(document).ready(function() {
 
 	var topOfAbout = $("#about").offset().top;
 	$(window).scroll(function() {
-		if( $(window).scrollTop() > topOfAbout) {
+		if( $(window).scrollTop() + 10 > topOfAbout) {
 			$('.active').removeClass('active');
 			$("#aboutButton").addClass('active');
 		}
@@ -56,7 +56,7 @@ $(document).ready(function() {
 
 	var topOfEntry = $("#entry").offset().top;
 	$(window).scroll(function() {
-		if( $(window).scrollTop() > topOfEntry) {
+		if( $(window).scrollTop() + 10 > topOfEntry) {
 			$('.active').removeClass('active');
 			$("#entryButton").addClass('active');
 		}
@@ -64,7 +64,7 @@ $(document).ready(function() {
 
 	var topOfStatistics = $("#statistics").offset().top;
 	$(window).scroll(function() {
-		if( $(window).scrollTop() > topOfStatistics) {
+		if( $(window).scrollTop() + 10 > topOfStatistics) {
 			$('.active').removeClass('active');
 			$("#statisticsButton").addClass('active');
 		}
