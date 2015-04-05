@@ -152,11 +152,10 @@ section:last-of-type {
 }
 
 #foodWaterDataTable th.input {
-	width: 85%;
+	width: 82%;
 }
 
 #foodWaterDataTable th.gallons {
-	width: 15%;
 	overflow-x: hidden;
 }
 

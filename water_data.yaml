@@ -27,6 +27,8 @@ synonyms:
   "jalape??o": chili
   "extra-virgin olive oil": olive oil
   noodles: wheat pasta
+  vinegar: wine  # an approximation
+  apple cider vineger: apple juice  # ditto
 data:
   wheat:
     gallons_per_kg: 532.0222084
@@ -436,6 +438,8 @@ data:
     gallons_per_kg: 465.1  # rough estimate based on http://www.wonderwater.fi/wp-content/uploads/Wonderwater-menu.pdf
   beef:
     gallons_per_kg: 4071.93314
+  veal:
+    gallons_per_kg: 4071.93314
   chicken:
     gallons_per_kg: 1141.99316
   pizza:
@@ -450,4 +454,3 @@ data:
   radish:
   parsley:
   fish sauce:
-  vinegar:

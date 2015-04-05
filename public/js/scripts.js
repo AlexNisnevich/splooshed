@@ -16,7 +16,7 @@ $(document).ready(function() {
 			var wordsK = ["rice", "soy beans", "korean", "fish sauce"];
 			if (data.success) {
 				var outGallons = Math.round(data.gallons * 100) / 100;
-				if (data.gallons = 0) {
+				if (data.gallons == 0) {
 					outGallons = "0.0";
 				}
 				$("#foodWaterDataTable").append("<tr><td>" + data.parsed_input + "</td><td class='gallonCell'>" + outGallons + "</td></tr>");

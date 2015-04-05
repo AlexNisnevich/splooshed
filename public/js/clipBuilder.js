@@ -1,5 +1,6 @@
 var Clips = {};
 var index = 0;
+
 Clips[0] = new Howl({
   urls: ['songs/k1.wav'],
 	onend: function(){
@@ -10,19 +11,19 @@ Clips[0] = new Howl({
 
 Clips[1] = new Howl({
 	urls: ['songs/k2.wav'],
-
 	onend: function(){
 		fuckK();
 	}
 });
 
 Clips[2] = new Howl({
-	urls: ['songs/k3.wav']
-
+	urls: ['songs/k3.wav'],
+	onend: function(){
+		fuckK();
+	}
 });
 
 Clips[3] = new Howl({
-
 	urls: ['songs/k4.wav'],
 	onend: function(){
 		fuckK();
@@ -34,12 +35,8 @@ var playK = function(){
 	index += 3;
 	index = index % 4;
 	Clips[index].play();
-
-
 };
 
 var fuckK = function(){
-	
-	//document.body.style.backgroundColor = "blue";
-document.body.style.backgroundImage = "url('http://colors.findthedata.com/l/334/Baby-Blue-Eyes')";	
+	document.body.style.backgroundImage = "url('http://colors.findthedata.com/l/334/Baby-Blue-Eyes')";	
 };
