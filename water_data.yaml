@@ -300,9 +300,9 @@ data:
     gallons_per_kg: 258.38  # an approximation from apples : apple juice :: lemons : lemon juice
   grapefruit:
     gallons_per_kg: 147.3471469
-  apples, fresh:
+  apples:
     gallons_per_kg: 239.3663138
-  apples, dried:
+  dried apples:
     gallons_per_kg: 1993.845682
   apple juice:
     gallons_per_kg: 332.2590803
@@ -348,7 +348,7 @@ data:
     gallons_per_kg: 524.1598112
   avocados:
     gallons_per_kg: 576.8669922
-  pineapples:
+  pineapple:
     gallons_per_kg: 74.25597326
   pineapple juice:
     gallons_per_kg: 370.6974665

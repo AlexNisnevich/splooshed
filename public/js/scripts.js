@@ -102,7 +102,7 @@ $(document).ready(function() {
 	var worstFoodsOptions = { 
 		scaleFontColor: "#EEE", 
 		scaleGridLineColor: "#AAA",
-		graphTitle: "Worst Foods by Water Requirements",
+		graphTitle: "Least Water-Efficient Foods",
 		graphTitleFontFamily : "'Roboto'",
 		graphTitleFontSize : 18,
 		graphTitleFontStyle : "bold",
@@ -120,15 +120,15 @@ $(document).ready(function() {
 	};
 	var worstFoodsctx = $("#worstFoods").get(0).getContext("2d");
 	var worstFoodsData = {
-		labels: ["Sesame Oil", "Roasted Coffee", "Chocolate", "Almonds", "Cashews", "Beef", "Pistachios", "Hazelnuts", "Sesame Seeds", "Tea Leaves"],
+		labels: ["Sesame Oil", "Roasted Coffee", "Chocolate", "Almonds", "Cashews", "Beef", "Pistachios", "Hazelnuts", "Sesame Seeds", "Walnuts"],
 		datasets: [
 			{
-				label: "Worst Foods by Water Requirements",
+				label: "Least Water-Efficient Foods",
 				fillColor: "rgba(220,220,220,0.5)",
 				strokeColor: "rgba(220,220,220,0.8)",
 				highlightFill: "rgba(220,220,220,0.75)",
 				highlightStroke: "rgba(220,220,220,1)",
-				data: [2884.599688181818, 2504.980915909091, 2276.124271363636, 2130.39196, 1881.945504090909, 1850.8787, 1504.047458181818, 1391.8031349999999, 1240.3791895454544, 1172.2119413636362]
+				data: [2884.599688181818, 2504.980915909091, 2276.124271363636, 2130.39196, 1881.945504090909, 1850.8787, 1504.047458181818, 1391.8031349999999, 1240.3791895454544, 1217.26803018	]
 			}
 		]
 	};
@@ -138,7 +138,7 @@ $(document).ready(function() {
 	var bestFoodsOptions = { 
 		scaleFontColor: "#EEE", 
 		scaleGridLineColor: "#AAA",
-		graphTitle: "Best Foods by Water Requirements",
+		graphTitle: "Most Water-Efficient Foods",
 		graphTitleFontFamily : "'Roboto'",
 		graphTitleFontSize : 18,
 		graphTitleFontStyle : "bold",
@@ -159,7 +159,7 @@ $(document).ready(function() {
 		labels: ["Carrots and Turnips", "Tomatoes", "Watermelon", "Lettuce", "Pineapples", "Tomato Juice", "Onions", "Cranberries", "Cabbage", "Cauliflowers and Broccoli"],
 		datasets: [
 			{
-				label: "Best Foods by Water Requirements",
+				label: "Most Water-Efficient Foods",
 				fillColor: "rgba(220,220,220,0.5)",
 				strokeColor: "rgba(220,220,220,0.8)",
 				highlightFill: "rgba(220,220,220,0.75)",
