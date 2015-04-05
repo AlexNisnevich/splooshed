@@ -42,7 +42,7 @@ IGNORED_FOOD_GROUPS = [
 
 DUMMY_WORDS = [
   "about", "and", "fresh", "minced", "peeled", "cut", "chopped", "packed", "shaved", "freshly",
-  "squeezed", "Italian", "leaves", "finely"
+  "squeezed", "Italian", "leaves", "finely", "boneless", "shredded"
 ]
 
 $dc = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "localhost:11211").split(","),
@@ -115,13 +115,13 @@ end
 def lookup_gallons_water_per_kg_by_food(food_name)
   key = FuzzyMatch.new($water_data.keys, :threshold => 0.1).find(food_name)
   key = FuzzyMatch.new($water_data.keys, :threshold => 0.2).find(food_name.split(" ").last) unless key
-  if key
+  begin
     puts "Water usage record found matching #{food_name}: #{key}"
     {
       :matched_name => key,
       :gallons_per_kg => $water_data[key]["gallons_per_kg"]
     }
-  else
+  rescue => e
     throw "No water usage data found for food: #{food_name}"
   end
 end

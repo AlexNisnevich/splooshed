@@ -431,3 +431,13 @@ data:
     gallons_per_kg: 4071.93314
   chicken:
     gallons_per_kg: 1141.99316
+
+  # stuff we can't figure out
+  paprika:
+  bay leaf:
+  egg noodles:
+  radish:
+  parsley:
+  pine nuts:
+  fish sauce:
+  vinegar:
