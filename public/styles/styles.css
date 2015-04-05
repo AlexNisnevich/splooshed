@@ -72,13 +72,32 @@ section {
 	}
 }
 
+#home {
+	min-height: 500px;
+}
+
+#bigLogo {
+	margin: auto;
+	width: 80%;
+	display: block;
+	padding-top: 100px;
+}
+
+#subLogo {
+	font-family: 'Roboto Slab', serif;
+	color: #333;
+	font-size: 48px;
+	font-weight: bold;
+	text-align: center;
+}
+
 section:nth-child(even) {
 	background-color: #88A2B9;
 }
 
 section:last-of-type {
 	background-color: #CCC;
-	min-height: 150px;
+	min-height: 100px;
 }
 
 .droughtStats {
@@ -188,7 +207,7 @@ canvas {
 .copyright {
 	color: #555;
 	font-size: 12px;
-	margin: 0 auto;
+	text-align: center;
 }
 
 .clearfix:after {
