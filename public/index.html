@@ -52,16 +52,16 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active">
+					<li id="homeButton" class="active">
 						<a href="#home" class="page-scroll">Home</a>
 					</li>
-					<li>
+					<li id="aboutButton">
 						<a href="#about" class="page-scroll">About</a>
 					</li>
-					<li>
+					<li id="entryButton">
 						<a href="#entry" class="page-scroll">Food-Water Calculator</a>
 					</li>
-					<li>
+					<li id="statisticsButton">
 						<a href="#statistics" class="page-scroll">Statistics</a>
 					</li>
 				</ul>
@@ -143,6 +143,7 @@
 				</form>
 			</div>
 			<div class="foodEntryResult">
+				<img id="ajaxSpinner" src="images/ajax-loader.gif" />
 				<table id="foodWaterDataTable">
 				</table>
 			</div>

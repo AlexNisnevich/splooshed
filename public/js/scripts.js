@@ -7,9 +7,10 @@ $(document).ready(function() {
 
 	// Food submission handling
 	$('#foodSubmit').click(function() {
-		// $('.foodEntryResult').text($('#foodEntry').serialize());
+		$("#foodWaterDataTable").empty();
+		$('#ajaxSpinner').css('display', 'block');
 		$.get('/food', $('#foodEntry').serialize(), function(data) {
-			$("#foodWaterDataTable").empty();
+			$('#ajaxSpinner').hide();
 			$("#foodWaterDataTable").append('<tr><th class="input">Input</th><th class="gallons">Gallons of Water</th></tr>');
 			if (data.success) {
 				var outGallons = Math.round(data.gallons * 100) / 100;
@@ -24,20 +25,54 @@ $(document).ready(function() {
 	});
 
 	$('#recipeSubmit').click(function() {
-		// $('.foodEntryResult').text($('#inputRecipe').val().replace("\n","\\n"));
+		$("#foodWaterDataTable").empty();
+		$('#ajaxSpinner').css('display', 'block');
 		$.post('/recipe', $('#inputRecipe').val(), function(data) {
+			$('#ajaxSpinner').hide();
 			outputData(data);
 		});
 	});
 
-	$( "#inputFood" ).autocomplete({
-    source: '/list_foods',
-    minLength: 2
-  });
+	$("#inputFood").autocomplete({
+		source: '/list_foods',
+		minLength: 2
+	});
+
+	var topOfHome = $("#home").offset().top;
+	$(window).scroll(function() {
+		if( $(window).scrollTop() > topOfHome) {
+			$('.active').removeClass('active');
+			$("#homeButton").addClass('active');
+		}
+	});
+
+	var topOfAbout = $("#about").offset().top;
+	$(window).scroll(function() {
+		if( $(window).scrollTop() > topOfAbout) {
+			$('.active').removeClass('active');
+			$("#aboutButton").addClass('active');
+		}
+	});
+
+	var topOfEntry = $("#entry").offset().top;
+	$(window).scroll(function() {
+		if( $(window).scrollTop() > topOfEntry) {
+			$('.active').removeClass('active');
+			$("#entryButton").addClass('active');
+		}
+	});
+
+	var topOfStatistics = $("#statistics").offset().top;
+	$(window).scroll(function() {
+		if( $(window).scrollTop() > topOfStatistics) {
+			$('.active').removeClass('active');
+			$("#statisticsButton").addClass('active');
+		}
+	});
+
 
 	var outputData = function(data) {
 		var total = 0;
-		$("#foodWaterDataTable").empty();
 		$("#foodWaterDataTable").append('<tr><th class="input">Input</th><th class="gallons">Gallons of Water</th></tr>');
 		for (var i = 0; i < data.length; i++) {
 			if (data[i].success) {

@@ -127,6 +127,12 @@ section:last-of-type {
 	font-size: 18px;
 }
 
+#ajaxSpinner {
+	display: none;
+	width: 20%;
+	margin: 0 auto;
+}
+
 #foodWaterDataTable {
 	background-color: #88A2B9;
 	width: 100%;
