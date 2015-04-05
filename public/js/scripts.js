@@ -1,3 +1,5 @@
+var wordsK = ["soybean", "soy bean", "korean", "fish sauce", "kimchi", "bulgogi"]; // KOREAN WORDS THAT PLAY SONGS
+
 $(document).ready(function() {
 	// Change of active highlighting in navbar
 //	$('.nav li').click(function() {
@@ -12,8 +14,6 @@ $(document).ready(function() {
 		$.get('/food', $('#foodEntry').serialize(), function(data) {
 			$('#ajaxSpinner').hide();
 			$("#foodWaterDataTable").append('<tr><th class="input">Input</th><th class="gallons">Gallons of Water</th></tr>');
-			// KOREAN WORDS THAT PLAY SONGS
-			var wordsK = ["rice", "soybean", "korean", "fish sauce"];
 			if (data.success) {
 				var outGallons = Math.round(data.gallons * 100) / 100;
 				if (data.gallons == 0) {
@@ -104,12 +104,19 @@ $(document).ready(function() {
 			if (data[i].success) {
 				var outGallons = Math.round(data[i].gallons * 100) / 100;
 				total = total + outGallons;
-				if (data[i].gallons = 0) {
+				if (data[i].gallons == 0) {
 					outGallons = "0.0";
 				}
-				$("#foodWaterDataTable").append("<tr><td>" + data[i].parsed_input + "</td><td class='gallonCell'>" + outGallons + "</td></tr>");
+
+				if (data[i].gallons > 500) {
+	        var imgNum = 8;
+	      } else {
+	        var imgNum = Math.ceil((data[i].gallons + 1) / 500 * 8);
+	      }
+
+				$("#foodWaterDataTable").append("<tr><td>" + data[i].parsed_input + "</td><td class='gallonCell'>" + outGallons + " <img class='waterIcon' src='/images/droplet" + imgNum + ".png' title='Water impact: " + outGallons + " gallons'</td></tr>");
 			} else {
-				$("#foodWaterDataTable").append("<tr class='error'><td>" + data[i].parsed_input + "</td><td class='gallonCell'>Unknown <a title='" + data[i].error + "'>[?]</a></td></tr>");
+				$("#foodWaterDataTable").append("<tr class='error'><td>" + data[i].parsed_input + "</td><td class='gallonCell'>Unknown <img title='" + data[i].error + "' class='waterIcon' src='/images/droplet0.png'></img></td></tr>");
 			}
 		}
 		$("#foodWaterDataTable").append('<tr><td class="transparentCell">Total:</td><td class="totalCell">' + (Math.round(total * 100) / 100) + '</td></tr>');

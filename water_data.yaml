@@ -501,6 +501,10 @@ data:
     gallons_per_kg: 201.279450044071
   wheat tortillas:
     gallons_per_kg: 1641.99963596012
+  simple syrup:
+    gallons_per_kg: 220  # weighted avg(refined sugar, water)
+  egg whites:
+    gallons_per_kg: 820  # rough estimate based on whole eggs and egg yolks
 
   # stuff we can't figure out
   bay leaf:
@@ -512,3 +516,5 @@ data:
   bell pepper:
   baking powder:
   yeast:
+  lemongrass:
+  vodka:

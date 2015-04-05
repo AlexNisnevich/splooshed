@@ -172,6 +172,14 @@ section:last-of-type {
 
 .gallonCell {
 	text-align: center;
+	position: relative;
+}
+
+.gallonCell .waterIcon {
+	position: absolute;
+	top: 8px;
+	right: 5px;
+	cursor: pointer;
 }
 
 .transparentCell {
