@@ -405,3 +405,29 @@ data:
     gallons_per_kg: 3.79
   salt:
     gallons_per_kg: 0.0
+  sour cream:
+    gallons_per_kg: 1101  # rough estimate based on http://www.wonderwater.fi/wp-content/uploads/Wonderwater-menu.pdf
+  elk:
+    gallons_per_kg: 0.0  # see http://www.wonderwater.fi/wp-content/uploads/Wonderwater-menu.pdf
+  milk:
+    gallons_per_kg: 264.55  # assuming 1000 L water / 1 L milk
+  sheep:
+    gallons_per_kg: 1611.45027883373
+  lamb:
+    gallons_per_kg: 1611.45027883373
+  pork:
+    gallons_per_kg: 1603.92902234252
+  goat:
+    gallons_per_kg: 1056.68870743196
+  cheese:
+    gallons_per_kg: 839.539178054689
+  butter:
+    gallons_per_kg: 1466.94809809241
+  eggs:
+    gallons_per_kg: 871.768183631364
+  salmon:
+    gallons_per_kg: 465.1  # rough estimate based on http://www.wonderwater.fi/wp-content/uploads/Wonderwater-menu.pdf
+  beef:
+    gallons_per_kg: 4071.93314
+  chicken:
+    gallons_per_kg: 1141.99316

@@ -113,7 +113,7 @@ def parse_recipe_line(line)
 end
 
 def lookup_gallons_water_per_kg_by_food(food_name)
-  key = FuzzyMatch.new($water_data.keys, :threshold => 0.2).find(food_name)
+  key = FuzzyMatch.new($water_data.keys, :threshold => 0.1).find(food_name)
   key = FuzzyMatch.new($water_data.keys, :threshold => 0.2).find(food_name.split(" ").last) unless key
   if key
     puts "Water usage record found matching #{food_name}: #{key}"
