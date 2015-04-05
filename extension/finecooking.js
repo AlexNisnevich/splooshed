@@ -14,7 +14,7 @@ $('[itemprop="ingredients"]').map(function (i, x) {
       if (roundedGallons > 500) {
         var num = 8;
       } else {
-        var num = Math.ceil(roundedGallons / 500 * 8);
+        var num = Math.ceil((roundedGallons + 1) / 500 * 8);
       }
 
       var img = $("<img class='waterIcon' src='" + splooshed + "/images/droplet" + num + ".png' title='Water usage: " + roundedGallons + " gallons'>");
