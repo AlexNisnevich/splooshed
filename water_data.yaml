@@ -467,6 +467,8 @@ data:
     gallons_per_kg: 1456.213375
   cheese, processed:
     gallons_per_kg: 1456.213375
+  cheese, grated:
+    gallons_per_kg: 1456.213375
   blue cheese:
     gallons_per_kg: 1456.213375
   egg yolks:

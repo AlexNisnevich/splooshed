@@ -41,6 +41,11 @@
       "matches": ["http://allrecipes.com/Recipe/*"],
       "css": [],
       "js": ["jquery.js", "allrecipes.js"]
+    },
+    {
+      "matches": ["http://www.yummly.com/recipe/*"],
+      "css": [],
+      "js": ["jquery.js", "yummly.js"]
     }
   ]
 }
