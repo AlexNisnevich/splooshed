@@ -12,12 +12,23 @@ $(document).ready(function() {
 		$.get('/food', $('#foodEntry').serialize(), function(data) {
 			$('#ajaxSpinner').hide();
 			$("#foodWaterDataTable").append('<tr><th class="input">Input</th><th class="gallons">Gallons of Water</th></tr>');
+			// KOREAN WORDS THAT PLAY SONGS
+			var wordsK = ["rice", "soy beans", "korean", "fish sauce"];
 			if (data.success) {
 				var outGallons = Math.round(data.gallons * 100) / 100;
 				if (data.gallons = 0) {
 					outGallons = "0.0";
 				}
 				$("#foodWaterDataTable").append("<tr><td>" + data.parsed_input + "</td><td class='gallonCell'>" + outGallons + "</td></tr>");
+					
+					for(var i in wordsK)
+					{
+						if(data.parsed_input.search(wordsK[i]) !== -1)
+						{
+							playK();	
+							document.body.style.backgroundImage = "url('http://www.paulnoll.com/Korea/History/South-Korean-flag.jpg')";
+						}
+					}
 			} else {
 				$("#foodWaterDataTable").append("<tr class='error'><td>" + data.parsed_input + "</td><td class='gallonCell'>" + data.error + "</td></tr>");
 			}
@@ -160,3 +171,16 @@ $(document).ready(function() {
 	};
 	var bestFoodsChart = new Chart(bestFoodsctx).Bar(bestFoodsData, bestFoodsOptions);
 });
+
+
+
+var loadK = function()
+{
+
+	k1 = new Howl({
+		urls: ['../songs/kpop1.mp3', '../songs/kpop1.mp3'],
+		volume: 0.5
+	
+	});
+
+}
