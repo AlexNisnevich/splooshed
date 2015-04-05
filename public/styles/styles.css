@@ -185,6 +185,22 @@ section:last-of-type {
 	font-size: 18px;
 }
 
+.logoContainerTop img {
+	height: 125px;
+	display: block;
+	margin: 2%;
+	float: left;
+	padding: 0.5%;
+}
+
+.logoContainerBottom img {
+	width: 24%;
+	display: block;
+	margin: 0.5%;
+	float: left;
+	padding: 0.5%;
+}
+
 .graphsContainer {
 	padding: 5px;
 }

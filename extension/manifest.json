@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Splooshed for Chrome",
   "description": "Adds Splooshed water usage data to recipes on CHOW, Serious Eats, Epicurious, Food.com, and more.",
-  "version": "1.0",
+  "version": "1.1.0.1",
   "permissions": [
     "http://splooshed.herokuapp.com/"
   ],
