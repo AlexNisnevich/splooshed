@@ -116,6 +116,7 @@ section:last-of-type {
 #inputRecipe {
 	width: 100%;
 	display: block;
+	resize: none;
 }
 
 #foodEntry, #recipeEntry {
