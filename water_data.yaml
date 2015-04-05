@@ -14,6 +14,8 @@ synonyms:
   garbanzo beans: chick peas
   "green tea": tea
   "black tea": tea
+  "green tea leaves": tea leaves
+  "black tea leaves": tea leaves
   kiwifruit: kiwi
   scallion: onions  # (close enough)
   pepper powder: pepper
@@ -367,8 +369,10 @@ data:
     gallons_per_kg: 4553.20156
   chocolate:
     gallons_per_kg: 5007.473397
-  tea:
+  tea leaves:
     gallons_per_kg: 2578.866271
+  tea:
+    gallons_per_kg: 108
   pepper:
     gallons_per_kg: 2216.322402
   chili:
@@ -433,6 +437,8 @@ data:
     gallons_per_kg: 4071.93314
   chicken:
     gallons_per_kg: 1141.99316
+  pizza:
+    gallons_per_kg: 459.11  # http://www.waterfootprint.org/?page=files/productgallery
 
   # stuff we can't figure out
   paprika:
