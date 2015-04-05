@@ -191,15 +191,17 @@ def measure_conversion(found_measure, expected_measure)
   end
 end
 
+INVALID_NDBNOS = ["01123"]   # this one ndbno crashes for some reason ... maybe there are others like it?
+
 def get_and_cache_ndbno_for_food(food_name)
   key = "ndbno:#{food_name}"
-  if $dc.get(key)
+  if $dc.get(key) && !INVALID_NDBNOS.include?($dc.get(key))
     puts "Retrieving from cache: #{key}"
     $dc.get(key)
   else
     begin
       response = JSON.parse(open("http://api.nal.usda.gov/usda/ndb/search/?format=json&q=#{food_name}&max=25&offset=0&api_key=#{USDA_API_KEY}".gsub(" ", "%20")).read)
-      foods = response["list"]["item"].reject {|m| IGNORED_FOOD_GROUPS.include? m["group"] }
+      foods = response["list"]["item"].reject {|m| IGNORED_FOOD_GROUPS.include?(m["group"]) || INVALID_NDBNOS.include?(m["ndbno"]) }
       puts "Food found: #{foods.first["name"]}"
       ndbno = foods.first["ndbno"]
       $dc.set(key, ndbno)

@@ -4,7 +4,7 @@
   "description": "Adds Splooshed water usage data to CHOW recipes",
   "version": "1.0",
   "permissions": [
-    "http://splooshed.herokuapps.com/"
+    "http://splooshed.herokuapp.com/"
   ],
   "content_scripts": [
     {
