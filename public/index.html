@@ -8,7 +8,9 @@
 
 	<!-- JQuery JS -->
 	<script src="js/jquery.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 	<script src="js/jquery.easing.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="styles/bootstrap.min.css">
@@ -50,13 +52,16 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active">
+					<li id="homeButton" class="active">
+						<a href="#home" class="page-scroll">Home</a>
+					</li>
+					<li id="aboutButton">
 						<a href="#about" class="page-scroll">About</a>
 					</li>
-					<li>
-						<a href="#entry" class="page-scroll">Enter a Food</a>
+					<li id="entryButton">
+						<a href="#entry" class="page-scroll">Food Water-Impact Calculator</a>
 					</li>
-					<li>
+					<li id="statisticsButton">
 						<a href="#statistics" class="page-scroll">Statistics</a>
 					</li>
 				</ul>
@@ -64,7 +69,15 @@
 		</div>
 	</nav>
 
-	<!-- About/Home -->
+	<!-- Home -->
+	<section id="home">
+		<div class="content">
+			<img id="bigLogo" src="images/logo_highres.png" />
+			<div id="subLogo">Dispelling The Dry Spell</div>
+		</div>
+	</section>
+
+	<!-- About -->
 	<section id="about">
 		<div class="title">
 			<h1>About</h1>
@@ -92,7 +105,7 @@
 	<!-- Enter a Food -->
 	<section id="entry">
 		<div class="title">
-			<h1>Enter a Food</h1>
+			<h1>Food Water-Impact Calculator</h1>
 		</div>
 		<div class="content">
 			<p>Enter a single food below:</p>
@@ -122,7 +135,7 @@
 			<p>or copy and paste a recipe into the text area below:</p>
 			<div class="foodEntryContainer">
 				<form id="recipeEntry" class="form-inline">
-					<div class="form-group">
+					<div id="inputFormGroup" class="form-group">
 						<label for="inputRecipe" class="sr-only">Recipe</label>
 						<textarea class="form-control" name="inputRecipe" id="inputRecipe" placeholder="Recipe"></textarea>
 					</div>
@@ -130,6 +143,7 @@
 				</form>
 			</div>
 			<div class="foodEntryResult">
+				<img id="ajaxSpinner" src="images/ajax-loader.gif" />
 				<table id="foodWaterDataTable">
 				</table>
 			</div>
@@ -147,9 +161,16 @@
 					<canvas id="worstFoods" width="500" height="500"></canvas>
 				</div>
 				<div>
-					<canvas id="bestFoods" width="500" height="500"></canvas>
+					<canvas id="bestFoods" width="500" height="550"></canvas>
 				</div>
 			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<section id="footer">
+		<div class="copyright">
+			© 2015 Mel Maniwan, Aylan Mello, Alex Nisnevich, Jacob Nisnevich All Rights Reserved
 		</div>
 	</section>
 </body>

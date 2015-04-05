@@ -61,7 +61,7 @@ section {
 	width: 61%;
 	padding: 40px;
 	margin: 0 auto;
-	background-color: #728BA1;
+	background-color: #88A2B9;
 	min-height: 400px;
 	min-width: 200px;
 }
@@ -72,8 +72,32 @@ section {
 	}
 }
 
+#home {
+	min-height: 500px;
+}
+
+#bigLogo {
+	margin: auto;
+	width: 80%;
+	display: block;
+	padding-top: 100px;
+}
+
+#subLogo {
+	font-family: 'Roboto Slab', serif;
+	color: #333;
+	font-size: 48px;
+	font-weight: bold;
+	text-align: center;
+}
+
 section:nth-child(even) {
-	background-color: #88A2B9;	
+	background-color: #728BA1;
+}
+
+section:last-of-type {
+	background-color: #CCC;
+	min-height: 100px;
 }
 
 .droughtStats {
@@ -84,15 +108,32 @@ section:nth-child(even) {
 	padding: 30px;
 }
 
+#inputFormGroup {
+	width: 100%;
+	display: block;
+}
+
+#inputRecipe {
+	width: 100%;
+	display: block;
+	resize: vertical;
+	margin-bottom: 5px;
+}
+
 #foodEntry, #recipeEntry {
 	display: inline-block;
-    text-align: center;
-    width: 100%;
+	text-align: center;
+	width: 100%;
 }
 
 .form-control {
 	height: 40px;
 	font-size: 18px;
+}
+
+#ajaxSpinner {
+	display: none;
+	margin: 0 auto;
 }
 
 #foodWaterDataTable {
@@ -111,17 +152,34 @@ section:nth-child(even) {
 }
 
 #foodWaterDataTable th.input {
-	width: 80%;
-	overflow-x: ellipsis;
+	width: 85%;
 }
 
 #foodWaterDataTable th.gallons {
-	width: 20%;
-	overflow-x: ellipsis;
+	width: 15%;
+	overflow-x: hidden;
 }
 
 #foodWaterDataTable .error td {
 	background-color: rgb(241, 141, 141);
+}
+
+.totalCell {
+	font-weight: bold;
+	color: #333;
+	font-size: 20px;
+	text-align: center;
+}
+
+.gallonCell {
+	text-align: center;
+}
+
+.transparentCell {
+	text-align: right;
+	color: #333;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .btn {
@@ -135,11 +193,30 @@ section:nth-child(even) {
 .graphsContainer div {
 	float: left;
 	padding-left: 20px;
+	width: 48%;
 }
 
 .graphsContainer div:nth-child(even) {
 	float: right;
 	padding-right: 20px;
+}
+
+canvas {
+	width: 100% !important;
+	max-width: 800px;
+	height: auto !important;
+}
+
+@media screen and (max-width: 400px) {
+	.graphsContainer div {
+		width: 95%;
+	}
+}
+
+.copyright {
+	color: #555;
+	font-size: 12px;
+	text-align: center;
 }
 
 .clearfix:after {
