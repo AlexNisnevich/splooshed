@@ -26,6 +26,7 @@ synonyms:
   jalapeno: chili
   "jalape??o": chili
   "extra-virgin olive oil": olive oil
+  noodles: wheat pasta
 data:
   wheat:
     gallons_per_kg: 532.0222084
@@ -205,7 +206,7 @@ data:
     gallons_per_kg: 1509.580256
   linseed:
     gallons_per_kg: 1504.921058
-  linseed oil, refined:
+  linseed oil:
     gallons_per_kg: 2741.647013
   hempseed:
     gallons_per_kg: 1073.071614
@@ -439,6 +440,8 @@ data:
     gallons_per_kg: 1141.99316
   pizza:
     gallons_per_kg: 459.11  # http://www.waterfootprint.org/?page=files/productgallery
+  pine nuts:
+    gallons_per_kg: 3595  # nut average
 
   # stuff we can't figure out
   paprika:
@@ -446,6 +449,5 @@ data:
   egg noodles:
   radish:
   parsley:
-  pine nuts:
   fish sauce:
   vinegar:
