@@ -193,8 +193,13 @@ section:last-of-type {
 	font-size: 18px;
 }
 
+.logoContainerTop, .logoContainerBottom {
+	width: 700px;
+	margin: 0 auto;
+}
+
 .logoContainerTop img {
-	height: 100px;
+	height: 86px;
 	display: block;
 	margin: 2%;
 	float: left;
