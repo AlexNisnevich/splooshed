@@ -116,6 +116,7 @@ section:last-of-type {
 #inputRecipe {
 	width: 100%;
 	display: block;
+	resize: none;
 }
 
 #foodEntry, #recipeEntry {
@@ -131,7 +132,6 @@ section:last-of-type {
 
 #ajaxSpinner {
 	display: none;
-	width: 20%;
 	margin: 0 auto;
 }
 
