@@ -28,21 +28,24 @@ VOLUME_CONVERSIONS = {
   "cup->tsp" => 48.0,
   "tablespoon->teaspoon" => 3.0,
   "tbsp->tsp" => 3.0,
+  "tbsp->tsp unpacked" => 3.0,
   "servings->medium" => 1.0,
   "servings->med" => 1.0,
   "medium->fruit" => 1.0,
   "large->pepper" => 1.0,
-  "large->cup chopped" => 1.0
+  "large->cup chopped" => 1.0,
+  "quart->cup" => 4.0
 }
 
 IGNORED_FOOD_GROUPS = [
   "Baked Products",
-  "Baby Foods"
+  "Baby Foods",
+  "Snacks"
 ]
 
 DUMMY_WORDS = [
   "about", "and", "fresh", "minced", "peeled", "cut", "chopped", "packed", "shaved", "freshly",
-  "squeezed", "Italian", "leaves", "finely", "boneless", "shredded"
+  "squeezed", "Italian", "leaves", "finely", "boneless", "shredded", "sliced"
 ]
 
 $dc = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "localhost:11211").split(","),
@@ -73,7 +76,7 @@ def parse_recipe_line(line)
     begin
       result = Ingreedy.parse(preprocessed_line) rescue Ingreedy.parse(preprocessed_line.sub(/.*?(?=[0-9])/im, ""))
     rescue
-      if preprocessed_line.split(" ").length == 1 || preprocessed_line.include?("optional")  # no quantity/amount - probably negligible
+      if is_negligible? preprocessed_line
         return {
           :success => true,
           :parsed_input => preprocessed_line,
@@ -112,6 +115,10 @@ def parse_recipe_line(line)
   end
 end
 
+def is_negligible?(line)
+  line.split(" ").length == 1 || line.include?("optional") || line == "kosher salt"
+end
+
 def lookup_gallons_water_per_kg_by_food(food_name)
   key = FuzzyMatch.new($water_data.keys, :threshold => 0.1).find(food_name)
   key = FuzzyMatch.new($water_data.keys, :threshold => 0.2).find(food_name.split(" ").last) unless key
@@ -134,6 +141,7 @@ def preprocess_recipe_line(line)
     .split(" or ").first  # and after "or"
     .sub("jalape??o", "jalapeno")  # and let's fix up common non-ASCII ingredient names too
     .sub("cr??me fra??che", "creme fraiche")
+    .sub("1 to 2", "1.5")  # we're bad at ranges, let's hardcode the most common one
 end
 
 def weight_by_food_grams(food_name, unit)
@@ -193,9 +201,19 @@ def measure_conversion(found_measure, expected_measure)
   end
 end
 
-INVALID_NDBNOS = ["01123"]   # this one ndbno crashes for some reason ... maybe there are others like it?
+HARDCODED_NDBNOS = {
+  "rice" => "20054"  # otherwise we can't get rice right :-(
+}
+
+INVALID_NDBNOS = [
+  "01123"  # this one ndbno crashes for some reason ... maybe there are others like it?
+] 
 
 def get_and_cache_ndbno_for_food(food_name)
+  if HARDCODED_NDBNOS.include? food_name
+    return HARDCODED_NDBNOS[food_name]
+  end
+
   key = "ndbno:#{food_name}"
   if $dc.get(key) && !INVALID_NDBNOS.include?($dc.get(key))
     puts "Retrieving from cache: #{key}"
