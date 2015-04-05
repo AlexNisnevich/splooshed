@@ -13,17 +13,16 @@ $(document).ready(function() {
 			$('#ajaxSpinner').hide();
 			$("#foodWaterDataTable").append('<tr><th class="input">Input</th><th class="gallons">Gallons of Water</th></tr>');
 			// KOREAN WORDS THAT PLAY SONGS
-			var wordsK = ["rice", "soy beans", "korean", "fish sauce"];
+			var wordsK = ["rice", "soybean", "korean", "fish sauce"];
 			if (data.success) {
 				var outGallons = Math.round(data.gallons * 100) / 100;
 				if (data.gallons == 0) {
 					outGallons = "0.0";
 				}
 				$("#foodWaterDataTable").append("<tr><td>" + data.parsed_input + "</td><td class='gallonCell'>" + outGallons + "</td></tr>");
-					
 					for(var i in wordsK)
 					{
-						if(data.parsed_input.search(wordsK[i]) !== -1)
+						if(data.input.indexOf(wordsK[i]) > -1)
 						{
 							playK();	
 							document.body.style.backgroundImage = "url('http://www.paulnoll.com/Korea/History/South-Korean-flag.jpg')";

@@ -19,6 +19,12 @@ get '/food' do
   parse_recipe_line(line).to_json
 end
 
+post '/recipe_line' do
+  content_type :json
+  data = request.body.read
+  parse_recipe_line(data.to_ascii).to_json
+end
+
 post '/recipe' do
   content_type :json
   data = request.body.read

@@ -105,7 +105,7 @@ def parse_recipe_line(line)
     puts e
     {
       :success => false,
-      :error => e.message,
+      :error => e.message.sub('uncaught throw ', ''),
       :input => line,
       :parsed_input => (preprocessed_line.gsub(result.ingredient, food_name) rescue preprocessed_line)
     }
@@ -131,6 +131,7 @@ def preprocess_recipe_line(line)
     .downcase  # convert to lowercase for convenience
     .split(" ").reject {|w| DUMMY_WORDS.include?(w) }.join(" ")  # remove dummy words like "about"
     .split(",").first  # remove everything after commas
+    .sub("jalape??o", "jalapeno")
 end
 
 def weight_by_food_grams(food_name, unit)
