@@ -346,6 +346,8 @@ data:
     gallons_per_kg: 975.5196487
   mangoes:
     gallons_per_kg: 524.1598112
+  guavas:
+    gallons_per_kg: 524.1598112
   avocados:
     gallons_per_kg: 576.8669922
   pineapple:
@@ -422,8 +424,6 @@ data:
     gallons_per_kg: 765  # rough calculation
   sheep:
     gallons_per_kg: 1611.45027883373
-  lamb:
-    gallons_per_kg: 1611.45027883373
   pork:
     gallons_per_kg: 1603.92902234252
   goat:
@@ -446,6 +446,28 @@ data:
     gallons_per_kg: 459.11  # http://www.waterfootprint.org/?page=files/productgallery
   pine nuts:
     gallons_per_kg: 3595  # nut average
+  cream:
+    gallons_per_kg: 553.3610825
+  yogurt:
+    gallons_per_kg: 349.49121
+  buttermilk:
+    gallons_per_kg: 465.98828
+  whey:
+    gallons_per_kg: 188.4340107
+  cheese, powdered:
+    gallons_per_kg: 1456.213375
+  cheese, processed:
+    gallons_per_kg: 1456.213375
+  blue cheese:
+    gallons_per_kg: 1456.213375
+  egg yolks:
+    gallons_per_kg: 955.2759739
+  turkey:
+    gallons_per_kg: 1287.292623
+  lamb:
+    gallons_per_kg: 1482.425216
+  half and half:
+    gallons_per_kg: 408.955  # avg(milk, cream)
 
   # stuff we can't figure out
   paprika:
