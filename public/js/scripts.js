@@ -72,6 +72,14 @@ $(document).ready(function() {
 		}
 	});
 
+	var topOfChrome = $("#splooshOnTheGo").offset().top;
+	$(window).scroll(function() {
+		if( $(window).scrollTop() + 10 > topOfChrome) {
+			$('.active').removeClass('active');
+			$("#chromeButton").addClass('active');
+		}
+	});
+
 	var topOfStatistics = $("#statistics").offset().top;
 	$(window).scroll(function() {
 		if( $(window).scrollTop() + 10 > topOfStatistics) {
