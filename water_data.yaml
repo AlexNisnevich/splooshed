@@ -145,13 +145,13 @@ data:
     gallons_per_kg: 3061.966897
   areca nuts:
     gallons_per_kg: 3251.246829
-  soya beans:
+  soy beans:
     gallons_per_kg: 624.623775
-  soya sauce:
+  soy sauce:
     gallons_per_kg: 178.5055357
-  soya paste:
+  soy paste:
     gallons_per_kg: 166.56634
-  soya curd:
+  soy curd:
     gallons_per_kg: 734.6973354
   soy milk:
     gallons_per_kg: 1095.785205
@@ -159,22 +159,16 @@ data:
     gallons_per_kg: 734.6973354
   soybean oil:
     gallons_per_kg: 1220.127561
-  soybean oilcake:
-    gallons_per_kg: 518.0446134
   peanuts:
     gallons_per_kg: 1157.228383
   peanut oil:
     gallons_per_kg: 2192.44401
-  peanut oilcake:
-    gallons_per_kg: 432.1406444
   coconut:
     gallons_per_kg: 782.4541182
   copra:
     gallons_per_kg: 609.4813805
   coconut oil:
     gallons_per_kg: 1307.487529
-  coconut oilcake:
-    gallons_per_kg: 242.8607125
   oil palm:
     gallons_per_kg: 319.7374848
   palm nuts:
@@ -193,14 +187,8 @@ data:
     gallons_per_kg: 980.178847
   sunflower seed oil:
     gallons_per_kg: 1977.829688
-  sunflower seed oilcake:
-    gallons_per_kg: 394.8670578
-  rapeseed:
-    gallons_per_kg: 661.3149618
   canola oil:
     gallons_per_kg: 1252.450749
-  rape seed oilcake:
-    gallons_per_kg: 324.6878831
   safflower seed:
     gallons_per_kg: 2102.754443
   sesame seed:
@@ -217,8 +205,6 @@ data:
     gallons_per_kg: 1504.921058
   linseed oil, refined:
     gallons_per_kg: 2741.647013
-  linseed oilcake:
-    gallons_per_kg: 896.0220773
   hempseed:
     gallons_per_kg: 1073.071614
   cabbage:

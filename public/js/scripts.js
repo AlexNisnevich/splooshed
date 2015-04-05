@@ -30,6 +30,11 @@ $(document).ready(function() {
 		});
 	});
 
+	$( "#inputFood" ).autocomplete({
+    source: '/list_foods',
+    minLength: 2
+  });
+
 	var outputData = function(data) {
 		var total = 0;
 		$("#foodWaterDataTable").empty();
