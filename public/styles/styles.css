@@ -72,6 +72,26 @@ section {
 	}
 }
 
+#home {
+	min-height: 500px;
+}
+
+#bigLogo {
+	margin: auto;
+	width: 80%;
+	display: block;
+	padding-top: 100px;
+}
+
+#subLogo {
+	font-family: 'Roboto Slab', serif;
+	color: #333;
+	font-size: 48px;
+	font-weight: bold;
+	margin: auto;
+	width: 51%;
+}
+
 section:nth-child(even) {
 	background-color: #88A2B9;
 }
