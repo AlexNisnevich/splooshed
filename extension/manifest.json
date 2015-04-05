@@ -1,16 +1,21 @@
 {
   "manifest_version": 2,
-  "name": "Splooshed for CHOW",
-  "description": "Adds Splooshed water usage data to CHOW recipes",
+  "name": "Splooshed for Chrome",
+  "description": "Adds Splooshed water usage data to CHOW recipes and more",
   "version": "1.0",
   "permissions": [
-    "http://splooshed.herokuapps.com/"
+    "http://splooshed.herokuapp.com/"
   ],
   "content_scripts": [
     {
       "matches": ["http://www.chow.com/recipes/*"],
       "css": [],
-      "js": ["jquery.js", "extension.js"]
+      "js": ["jquery.js", "chow.js"]
+    },
+    {
+      "matches": ["http://www.finecooking.com/recipes/*"],
+      "css": [],
+      "js": ["jquery.js", "finecooking.js"]
     }
   ]
 }
