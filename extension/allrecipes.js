@@ -2,7 +2,7 @@ var splooshed = "http://splooshed.herokuapp.com";
 
 var total = 0;
 
-$('h3').before($('<h3 style="color: #88A2B9">Water Usage: <span id="totalWaterUsage">0 gallons</span></h3>'));
+$('h3:first').before($('<h3 style="color: #88A2B9">Water Usage: <span id="totalWaterUsage">0 gallons</span></h3>'));
 
 $('[itemprop="ingredients"]').map(function (i, x) {
   var recipeText = $(x).find('.ingredient-amount').text() + " " + $(x).find('.ingredient-name').text();
@@ -34,5 +34,7 @@ function addStyleString(str) {
     document.body.appendChild(node);
 }
 
-addStyleString('.waterIcon { position: absolute; left: -10px }');
+addStyleString('.waterIcon { position: absolute; right: 10px }');
 addStyleString('#liIngredient { position: relative; }')
+addStyleString('.rec-detail-wrapper ul.ingredient-wrap { width: 250px; }')
+addStyleString('.rec-detail-wrapper ul.ingredient-wrap li { width: 250px; }')
