@@ -29,12 +29,16 @@ synonyms:
   apple cider vineger: apple juice  # ditto
   creme fraiche: sour cream
   chili seasoning mix: dried chili pepper
+  chili powder: dried chili pepper
   kidney beans: string beans  # close enough
   spaghetti: wheat pasta
   tomato sauce: tomato puree
   all-purpose flour: wheat flour
   steak: beef
   bulgogi: beef  # (close enough)
+  lager: beer
+  ale: beer
+  queso fresco: cheese
 data:
   wheat:
     gallons_per_kg: 532.0222084
@@ -523,3 +527,9 @@ data:
   vodka:
   kimchi:
   sage:
+  oregano:
+  dill:
+  cumin:
+  celery:
+  rosemary:
+
