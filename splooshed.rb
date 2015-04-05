@@ -45,7 +45,7 @@ IGNORED_FOOD_GROUPS = [
 
 DUMMY_WORDS = [
   "about", "and", "fresh", "minced", "peeled", "cut", "chopped", "packed", "shaved", "freshly",
-  "squeezed", "Italian", "leaves", "finely", "boneless", "shredded", "sliced"
+  "squeezed", "Italian", "leaves", "finely", "boneless", "shredded", "sliced", "toasted"
 ]
 
 $dc = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "localhost:11211").split(","),

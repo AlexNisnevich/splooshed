@@ -66,7 +66,10 @@
 						<a href="#entry" class="page-scroll">Food Water-Impact Calculator</a>
 					</li>
 					<li id="chromeButton">
-						<a href="#splooshOnTheGo" class="page-scroll">Sploosh on the Go</a>
+						<a href="#chromeExtension" class="page-scroll">Get the Chrome Extension</a>
+					</li>
+					<li id="apiButton">
+						<a href="#api" class="page-scroll">API</a>
 					</li>
 					<li id="statisticsButton">
 						<a href="#statistics" class="page-scroll">Statistics</a>
@@ -90,22 +93,25 @@
 			<h1>About</h1>
 		</div>
 		<div class="content">
+			<h2>What Is Splooshed?</h2>
+			<p>Splooshed provides <em>water consumption data<a style="cursor:pointer" title="in particular, the amount of gallons of agricultural water used to grow food">*</a></em>&nbsp;&nbsp;for specific food ingredients or complete recipes.</p>
+			<p>We offer two services: a <a href="#entry" class="page-scroll">water-impact calculator</a> for individual foods and recipes and a <a href="#chromeExtension" class="page-scroll">Chrome extension</a> that lets you see water data while browsing your favorite recipe sites.</p>
+
 			<h2>Some Facts about California's Drought</h2>
-			<ul class="droughtStats">
+			<ul class="dropletList">
 				<li>California is going through its worst drought in <strong>1200 years</strong>.</li>
 				<li><strong>80%</strong> of the amount of water available in California is used by agriculture.</li>
 				<li>Yet only <strong>1%</strong> of the California's GDP is produced by agriculture.</li>
 				<li>17 communities are in danger of running out of water within the next <strong>60 to 120 days</strong>.</li>
 				<li>Poor families already spending <strong>1/5th of their household budget</strong> on food will be disproportionately affected by the drought.</li>
 			</ul>
+
 			<h2>What We Hope to Do About It</h2>
 			<ol>
 				<li>Raise awareness about the disproportionate usage of water by California's agriculture industry</li>
 				<li>Make it easier to make informed decisions about food purchases</li>
 				<li>Identify the most water intensive crops and key agricultural offenders</li>
 			</ol>
-			<h2>How Splooshed Works</h2>
-			<p>Splooshed combines the USDA National Nutrient Database API and WaterFootprint.org crop water usage data to provide users with water consumption data for specific food ingredients or complete recipes.</p>
 		</div>
 	</section>
 
@@ -158,12 +164,13 @@
 	</section>
 
 	<!-- Sploosh on the Go -->
-	<section id="splooshOnTheGo">
+	<section id="chromeExtension">
 		<div class="title">
-			<h1>Sploosh on the Go</h1>
+			<h1>Get the Chrome Extension</h1>
 		</div>
 		<div class="content">
-			<h2>Cooking and food-related sites currently supported:</h2>
+			<p>With the free <strong><a href="https://chrome.google.com/webstore/detail/splooshed-for-chrome/fecelcfjcfafabobbdeppjceijcidkld">Splooshed extension for Chrome</a></strong>, you can see Splooshed-powered water usage data while browsing your favorite recipe sites.</p>
+			<p>We currently support the following sites, with more coming soon!</p>
 			<div class="logoContainerTop clearfix">
 				<img src="images/logoAllRecipes.png" />
 				<img src="images/logoFoodCom.png" />
@@ -175,7 +182,21 @@
 				<img src="images/logoYummly.png" />
 				<img src="images/logoFineCooking.png" />
 			</div>
-			<h2>Splooshed for Chrome can be installed for free <a href="https://chrome.google.com/webstore/detail/splooshed-for-chrome/fecelcfjcfafabobbdeppjceijcidkld">here</a>.</h2>
+		</div>
+	</section>
+
+	<!-- API -->
+	<section id="api">
+		<div class="title">
+			<h1>API</h1>
+		</div>
+		<div class="content">
+			<p>Hey developers! Interested in working with water impact data? Splooshed offers three open-access JSON endpoints:</p>
+			<ul class="dropletList">
+				<li><span style="font-weight: bold; font-family: monospace;">GET http://www.splooshed.com/list_foods</span><br><i>returns a list of all food names understood by Splooshed.</i></li>
+				<li><span style="font-weight: bold; font-family: monospace;">GET http://www.splooshed.com/food?inputFood=[food]&amp;inputAmount=[amount]&amp;inputUnit=[unit]</span><br><i>returns water-impact information for a single food of the given amount.</i></li>
+				<li><span style="font-weight: bold;  font-family: monospace;">POST http://www.splooshed.com/recipe</span><br><i>returns water-impact information for a recipe (passed in as newline-separated text)</i>.</li>
+			</ul>
 		</div>
 	</section>
 

@@ -100,7 +100,7 @@ section:last-of-type {
 	min-height: 100px;
 }
 
-.droughtStats {
+.dropletList {
 	list-style-image: url('../images/droplet_icon.png');
 }
 
@@ -186,7 +186,7 @@ section:last-of-type {
 }
 
 .logoContainerTop img {
-	height: 125px;
+	height: 100px;
 	display: block;
 	margin: 2%;
 	float: left;

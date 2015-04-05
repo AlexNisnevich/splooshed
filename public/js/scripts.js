@@ -72,11 +72,19 @@ $(document).ready(function() {
 		}
 	});
 
-	var topOfChrome = $("#splooshOnTheGo").offset().top;
+	var topOfChrome = $("#chromeExtension").offset().top;
 	$(window).scroll(function() {
 		if( $(window).scrollTop() + 10 > topOfChrome) {
 			$('.active').removeClass('active');
 			$("#chromeButton").addClass('active');
+		}
+	});
+
+	var topOfAPI = $("#api").offset().top;
+	$(window).scroll(function() {
+		if( $(window).scrollTop() + 10 > topOfAPI) {
+			$('.active').removeClass('active');
+			$("#apiButton").addClass('active');
 		}
 	});
 
