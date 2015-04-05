@@ -41,5 +41,5 @@ var playK = function(){
 var fuckK = function(){
 	
 	//document.body.style.backgroundColor = "blue";
-
+document.body.style.backgroundImage = "url('http://colors.findthedata.com/l/334/Baby-Blue-Eyes')";	
 };
