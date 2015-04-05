@@ -146,7 +146,16 @@ def preprocess_recipe_line(line)
     .split(" or ").first  # remove every after "or"
     .sub("jalape??o", "jalapeno")  # and let's fix up common non-ASCII ingredient names too
     .sub("cr??me fra??che", "creme fraiche")
-    .sub("1 to 2", "1.5")  # we're bad at ranges, let's hardcode the most common one
+    .sub("1???2", "1/2")
+    .sub("1???3", "1/3")
+    .sub("1???4", "1/4")
+    .sub("1???8", "1/8")
+    .sub("2???3", "2/3")
+    .sub("3???4", "3/4")
+    .sub("1 to 2", "1.5")  # we're bad at ranges, let's hardcode the most common ones
+    .sub("2 to 3", "2.5")
+    .sub("3 to 4", "3.5")
+    .sub("2 to 4", "3")
     .sub("garlic cloves", "raw garlic")  # misc
 end
 
