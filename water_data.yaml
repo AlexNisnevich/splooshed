@@ -39,6 +39,8 @@ synonyms:
   lager: beer
   ale: beer
   queso fresco: cheese
+  bacon: pork
+  sausage: pork  # let's just assume
 data:
   wheat:
     gallons_per_kg: 532.0222084
@@ -512,6 +514,8 @@ data:
     gallons_per_kg: 220  # weighted avg(refined sugar, water)
   egg whites:
     gallons_per_kg: 820  # rough estimate based on whole eggs and egg yolks
+  mushrooms:
+    gallons_per_kg: 0
 
   # stuff we can't figure out
   bay leaf:
@@ -532,4 +536,6 @@ data:
   cumin:
   celery:
   rosemary:
-
+  lotus leaves:
+  parchment paper:
+  shrimp:

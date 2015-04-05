@@ -22,6 +22,7 @@ VOLUME_TO_CANONICAL_VOLUME = {
 }
 
 VOLUME_CONVERSIONS = {
+  "dash->pinch" => 1.0,
   "cup->tablespoon" => 16.0,
   "cup->tbsp" => 16.0,
   "cup->teaspoon" => 48.0,
@@ -32,6 +33,7 @@ VOLUME_CONVERSIONS = {
   "servings->medium" => 1.0,
   "servings->med" => 1.0,
   "medium->fruit" => 1.0,
+  "medium->clove" => 1.0,
   "large->pepper" => 1.0,
   "large->cup chopped" => 1.0,
   "quart->cup" => 4.0
@@ -46,7 +48,7 @@ IGNORED_FOOD_GROUPS = [
 
 DUMMY_WORDS = [
   "about", "and", "fresh", "minced", "peeled", "cut", "chopped", "packed", "shaved", "freshly",
-  "squeezed", "Italian", "leaves", "finely", "boneless", "shredded", "sliced", "toasted"
+  "squeezed", "Italian", "leaves", "finely", "boneless", "shredded", "sliced", "toasted", "kosher"
 ]
 
 $dc = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "localhost:11211").split(","),
@@ -139,10 +141,13 @@ def preprocess_recipe_line(line)
     .downcase  # convert to lowercase for convenience
     .split(" ").reject {|w| DUMMY_WORDS.include?(w) }.join(" ")  # remove dummy words like "about"
     .split(",").first  # remove everything after commas
-    .split(" or ").first  # and after "or"
+    .sub("vegetable or canola", "canola")  # fix up common "or" statements
+    .sub("canola or vegetable", "canola")
+    .split(" or ").first  # remove every after "or"
     .sub("jalape??o", "jalapeno")  # and let's fix up common non-ASCII ingredient names too
     .sub("cr??me fra??che", "creme fraiche")
     .sub("1 to 2", "1.5")  # we're bad at ranges, let's hardcode the most common one
+    .sub("garlic cloves", "raw garlic")  # misc
 end
 
 def weight_by_food_grams(food_name, unit)
@@ -203,7 +208,9 @@ def measure_conversion(found_measure, expected_measure)
 end
 
 HARDCODED_NDBNOS = {
-  "rice" => "20054"  # otherwise we can't get rice right :-(
+  "rice" => "20054",  # otherwise we can't get rice right :-(
+  "canola oil" => "04582",
+  "vegetable oil" => "04582"
 }
 
 INVALID_NDBNOS = [
