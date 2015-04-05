@@ -116,7 +116,7 @@ section:last-of-type {
 #inputRecipe {
 	width: 100%;
 	display: block;
-	resize: none;
+	resize: vertical;
 	margin-bottom: 5px;
 }
 
