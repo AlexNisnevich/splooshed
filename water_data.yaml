@@ -14,6 +14,8 @@ synonyms:
   garbanzo beans: chick peas
   "green tea": tea
   "black tea": tea
+  "green tea leaves": tea leaves
+  "black tea leaves": tea leaves
   kiwifruit: kiwi
   scallion: onions  # (close enough)
   pepper powder: pepper
@@ -24,6 +26,7 @@ synonyms:
   jalapeno: chili
   "jalape??o": chili
   "extra-virgin olive oil": olive oil
+  noodles: wheat pasta
 data:
   wheat:
     gallons_per_kg: 532.0222084
@@ -203,7 +206,7 @@ data:
     gallons_per_kg: 1509.580256
   linseed:
     gallons_per_kg: 1504.921058
-  linseed oil, refined:
+  linseed oil:
     gallons_per_kg: 2741.647013
   hempseed:
     gallons_per_kg: 1073.071614
@@ -367,8 +370,10 @@ data:
     gallons_per_kg: 4553.20156
   chocolate:
     gallons_per_kg: 5007.473397
-  tea:
+  tea leaves:
     gallons_per_kg: 2578.866271
+  tea:
+    gallons_per_kg: 108
   pepper:
     gallons_per_kg: 2216.322402
   chili:
@@ -433,6 +438,10 @@ data:
     gallons_per_kg: 4071.93314
   chicken:
     gallons_per_kg: 1141.99316
+  pizza:
+    gallons_per_kg: 459.11  # http://www.waterfootprint.org/?page=files/productgallery
+  pine nuts:
+    gallons_per_kg: 3595  # nut average
 
   # stuff we can't figure out
   paprika:
@@ -440,6 +449,5 @@ data:
   egg noodles:
   radish:
   parsley:
-  pine nuts:
   fish sauce:
   vinegar:
