@@ -61,7 +61,7 @@ section {
 	width: 61%;
 	padding: 40px;
 	margin: 0 auto;
-	background-color: #728BA1;
+	background-color: #88A2B9;
 	min-height: 400px;
 	min-width: 200px;
 }
@@ -92,7 +92,7 @@ section {
 }
 
 section:nth-child(even) {
-	background-color: #88A2B9;
+	background-color: #728BA1;
 }
 
 section:last-of-type {
@@ -109,11 +109,13 @@ section:last-of-type {
 }
 
 #inputFormGroup {
-	width: 58%;
+	width: 100%;
+	display: block;
 }
 
 #inputRecipe {
 	width: 100%;
+	display: block;
 }
 
 #foodEntry, #recipeEntry {
