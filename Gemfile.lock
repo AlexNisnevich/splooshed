@@ -9,19 +9,34 @@ GEM
   remote: https://rubygems.org/
   specs:
     blankslate (2.1.2.4)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
     dalli (2.7.4)
+    ffi (1.9.8)
     fuzzy_match (2.1.0)
+    hitimes (1.2.2)
+    listen (2.7.11)
+      celluloid (>= 0.15.2)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
     parslet (1.5.0)
       blankslate (~> 2.0)
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
+    rb-fsevent (0.9.4)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
+    rerun (0.10.0)
+      listen (~> 2.7, >= 2.7.3)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
     stringex (2.5.2)
     tilt (2.0.1)
+    timers (4.0.1)
+      hitimes
 
 PLATFORMS
   ruby
@@ -30,5 +45,6 @@ DEPENDENCIES
   dalli
   fuzzy_match
   ingreedy!
+  rerun
   sinatra
   stringex

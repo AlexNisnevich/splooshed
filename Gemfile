@@ -5,3 +5,5 @@ gem 'dalli'
 gem 'sinatra'
 gem 'fuzzy_match'
 gem 'stringex'
+
+gem 'rerun'
