@@ -420,7 +420,7 @@ data:
   agave:
     gallons_per_kg: 1907.068113
   water:
-    gallons_per_kg: 3.79
+    gallons_per_kg: 0.2638
   salt:
     gallons_per_kg: 0.0
   sour cream:
