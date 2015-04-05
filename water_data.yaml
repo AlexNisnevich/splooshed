@@ -18,8 +18,8 @@ synonyms:
   "black tea leaves": tea leaves
   kiwifruit: kiwi
   scallion: onions  # (close enough)
-  pepper powder: pepper
-  black pepper: pepper
+  pepper powder: black pepper
+  pepper: black pepper
   garlic cloves: garlic
   lime: lemons  # (close enough)
   vegetable oil: canola oil  # (let's just assume here)
@@ -204,8 +204,6 @@ data:
     gallons_per_kg: 817.9805054
   poppy seed:
     gallons_per_kg: 637.1453705
-  melon seed:
-    gallons_per_kg: 1509.580256
   linseed:
     gallons_per_kg: 1504.921058
   linseed oil:
@@ -378,9 +376,9 @@ data:
     gallons_per_kg: 2578.866271
   tea:
     gallons_per_kg: 108
-  pepper:
+  black pepper:
     gallons_per_kg: 2216.322402
-  chili:
+  dried chili pepper:
     gallons_per_kg: 2144.687228
   vanilla beans:
     gallons_per_kg: 36838.24273
@@ -390,11 +388,19 @@ data:
     gallons_per_kg: 17822.88958
   nutmeg:
     gallons_per_kg: 9993.689201
+  mace:
+    gallons_per_kg: 9993.689201
+  cardamom:
+    gallons_per_kg: 9993.689201
   anise:
     gallons_per_kg: 2411.135132
   coriander:
     gallons_per_kg: 2411.135132
   ginger:
+    gallons_per_kg: 482.5182262
+  turmeric:
+    gallons_per_kg: 482.5182262
+  curry:
     gallons_per_kg: 482.5182262
   peppermint:
     gallons_per_kg: 83.8655698
@@ -468,6 +474,18 @@ data:
     gallons_per_kg: 1482.425216
   half and half:
     gallons_per_kg: 408.955  # avg(milk, cream)
+  vermouth:
+    gallons_per_kg: 195.1325922
+  cider:
+    gallons_per_kg: 195.1325922
+  mead:
+    gallons_per_kg: 195.1325922
+  brandy:
+    gallons_per_kg: 195.1325922
+  cantaloupe:
+    gallons_per_kg: 63.19966047
+  melons:
+    gallons_per_kg: 63.19966047
 
   # stuff we can't figure out
   paprika:
