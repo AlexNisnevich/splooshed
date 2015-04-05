@@ -491,16 +491,20 @@ data:
     gallons_per_kg: 63.19966047
   melons:
     gallons_per_kg: 63.19966047
+  paprika:
+    gallons_per_kg: 2144.687228
+  egg noodles:
+    gallons_per_kg: 759.218932205074
+  corn tortillas:
+    gallons_per_kg: 201.279450044071
+  wheat tortillas:
+    gallons_per_kg: 1641.99963596012
 
   # stuff we can't figure out
-  paprika:
   bay leaf:
-  egg noodles:
   radish:
   parsley:
   fish sauce:
-  tortillas:
-  vegetable oil:
   honey:
   jalapeno:
   bell pepper:
