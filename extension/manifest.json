@@ -1,14 +1,16 @@
 {
   "manifest_version": 2,
   "name": "Splooshed for Chrome",
-  "description": "Adds Splooshed water usage data to CHOW recipes and more",
+  "description": "Adds Splooshed water usage data to recipes on CHOW, Serious Eats, Epicurious, Food.com, and more.",
   "version": "1.0",
   "permissions": [
     "http://splooshed.herokuapp.com/"
   ],
-  "icons": { "16": "icon16.png",
-           "48": "icon48.png",
-          "128": "icon128.png" },
+  "icons": { 
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png" 
+  },
   "content_scripts": [
     {
       "matches": ["http://www.chow.com/recipes/*"],
@@ -29,6 +31,11 @@
       "matches": ["http://www.epicurious.com/recipes/food/views/*"],
       "css": [],
       "js": ["jquery.js", "epicurious.js"]
+    },
+    {
+      "matches": ["http://www.food.com/recipe/*"],
+      "css": [],
+      "js": ["jquery.js", "food.com.js"]
     },
     {
       "matches": ["http://allrecipes.com/Recipe/*"],

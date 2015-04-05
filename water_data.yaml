@@ -23,13 +23,15 @@ synonyms:
   garlic cloves: garlic
   lime: lemons  # (close enough)
   vegetable oil: canola oil  # (let's just assume here)
-  jalapeno: chili
-  "jalape??o": chili
   "extra-virgin olive oil": olive oil
   noodles: wheat pasta
   vinegar: wine  # an approximation
   apple cider vineger: apple juice  # ditto
   creme fraiche: sour cream
+  chili seasoning mix: dried chili pepper
+  kidney beans: string beans  # close enough
+  spaghetti: wheat pasta
+  tomato sauce: tomato puree
 data:
   wheat:
     gallons_per_kg: 532.0222084
@@ -498,3 +500,5 @@ data:
   tortillas:
   vegetable oil:
   honey:
+  jalapeno:
+  bell pepper:
