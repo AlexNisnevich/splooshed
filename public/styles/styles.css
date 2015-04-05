@@ -88,8 +88,7 @@ section {
 	color: #333;
 	font-size: 48px;
 	font-weight: bold;
-	margin: auto;
-	width: 51%;
+	text-align: center;
 }
 
 section:nth-child(even) {
