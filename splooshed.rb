@@ -40,7 +40,8 @@ VOLUME_CONVERSIONS = {
 IGNORED_FOOD_GROUPS = [
   "Baked Products",
   "Baby Foods",
-  "Snacks"
+  "Snacks",
+  "Fast Foods"
 ]
 
 DUMMY_WORDS = [

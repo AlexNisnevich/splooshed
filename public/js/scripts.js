@@ -20,18 +20,17 @@ $(document).ready(function() {
 					outGallons = "0.0";
 				}
 				$("#foodWaterDataTable").append("<tr><td>" + data.parsed_input + "</td><td class='gallonCell'>" + outGallons + "</td></tr>");
-					for(var i in wordsK)
-					{
-						if(data.input.indexOf(wordsK[i]) > -1)
-						{
-							playK();	
-							document.body.style.backgroundImage = "url('http://www.paulnoll.com/Korea/History/South-Korean-flag.jpg')";
-						}
-					}
 			} else {
 				$("#foodWaterDataTable").append("<tr class='error'><td>" + data.parsed_input + "</td><td class='gallonCell'>" + data.error + "</td></tr>");
 			}
 		});
+
+		for (var i in wordsK) {
+			if ($('#inputFood').val().indexOf(wordsK[i]) > -1) {
+				playK();	
+				document.body.style.backgroundImage = "url('http://www.paulnoll.com/Korea/History/South-Korean-flag.jpg')";
+			}
+		}
 	});
 
 	$('#recipeSubmit').click(function() {

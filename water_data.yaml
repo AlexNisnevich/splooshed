@@ -34,6 +34,7 @@ synonyms:
   tomato sauce: tomato puree
   all-purpose flour: wheat flour
   steak: beef
+  bulgogi: beef  # (close enough)
 data:
   wheat:
     gallons_per_kg: 532.0222084
@@ -301,6 +302,8 @@ data:
     gallons_per_kg: 186.9503327
   lemon juice:
     gallons_per_kg: 258.38  # an approximation from apples : apple juice :: lemons : lemon juice
+  lime juice:
+    gallons_per_kg: 258.38
   grapefruit:
     gallons_per_kg: 147.3471469
   apples:
@@ -518,3 +521,4 @@ data:
   yeast:
   lemongrass:
   vodka:
+  kimchi:
