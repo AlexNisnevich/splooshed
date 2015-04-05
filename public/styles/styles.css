@@ -109,7 +109,8 @@ section:last-of-type {
 }
 
 #inputFormGroup {
-	width: 58%;
+	width: 100%;
+	display: block;
 }
 
 #inputRecipe {
