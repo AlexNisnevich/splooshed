@@ -97,7 +97,7 @@ $(document).ready(function() {
 		graphTitleFontSize : 18,
 		graphTitleFontStyle : "bold",
 		graphTitleFontColor : "#EEE",
-		yAxisLabel : "Gallons of Water per Kilogram of Food",
+		yAxisLabel : "Gallons of Water per Lb of Food",
 		yAxisFontFamily : "'Roboto'",
 		yAxisFontSize : 16,
 		yAxisFontStyle : "normal",
@@ -118,7 +118,7 @@ $(document).ready(function() {
 				strokeColor: "rgba(220,220,220,0.8)",
 				highlightFill: "rgba(220,220,220,0.75)",
 				highlightStroke: "rgba(220,220,220,1)",
-				data: [6346.119314, 5510.958015, 5007.473397, 4686.862312, 4140.280109, 4071.93314, 3308.904408, 3061.966897, 2728.834217, 2578.866271]
+				data: [2884.599688181818, 2504.980915909091, 2276.124271363636, 2130.39196, 1881.945504090909, 1850.8787, 1504.047458181818, 1391.8031349999999, 1240.3791895454544, 1172.2119413636362]
 			}
 		]
 	};
@@ -133,7 +133,7 @@ $(document).ready(function() {
 		graphTitleFontSize : 18,
 		graphTitleFontStyle : "bold",
 		graphTitleFontColor : "#EEE",
-		yAxisLabel : "Gallons of Water per Kilogram of Food",
+		yAxisLabel : "Gallons of Water per Lb of Food",
 		yAxisFontFamily : "'Roboto'",
 		yAxisFontSize : 16,
 		yAxisFontStyle : "normal",
@@ -146,7 +146,7 @@ $(document).ready(function() {
 	};
 	var bestFoodsctx = $("#bestFoods").get(0).getContext("2d");
 	var bestFoodsData = {
-		labels: ["Carrots and Turnips", "Sugar Cane", "Tomatoes", "Watermelon", "Lettuce", "Pineapples", "Tomato Juice", "Onions", "Cranberries", "Cabbage", "Cauliflowers and Broccoli"],
+		labels: ["Carrots and Turnips", "Tomatoes", "Watermelon", "Lettuce", "Pineapples", "Tomato Juice", "Onions", "Cranberries", "Cabbage", "Cauliflowers and Broccoli"],
 		datasets: [
 			{
 				label: "Best Foods by Water Requirements",
@@ -154,7 +154,7 @@ $(document).ready(function() {
 				strokeColor: "rgba(220,220,220,0.8)",
 				highlightFill: "rgba(220,220,220,0.75)",
 				highlightStroke: "rgba(220,220,220,1)",
-				data: [56.78397955, 61.15197798, 62.31677756, 68.43197535, 69.01437514, 74.25597326, 77.750372, 79.20637147, 80.37117105, 81.53597063, 82.99197011]
+				data: [25.810899795454542, 28.32580798181818, 31.10544334090909, 31.370170518181816, 33.75271511818182, 35.341078181818176, 36.002896122727265, 36.53235047727272, 37.06180483181818, 37.72362277727272]
 			}
 		]
 	};

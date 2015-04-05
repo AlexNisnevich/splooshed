@@ -411,6 +411,8 @@ data:
     gallons_per_kg: 0.0  # see http://www.wonderwater.fi/wp-content/uploads/Wonderwater-menu.pdf
   milk:
     gallons_per_kg: 264.55  # assuming 1000 L water / 1 L milk
+  almond milk:
+    gallons_per_kg: 765  # rough calculation
   sheep:
     gallons_per_kg: 1611.45027883373
   lamb:
