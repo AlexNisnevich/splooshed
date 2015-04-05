@@ -16,6 +16,11 @@
       "matches": ["http://www.finecooking.com/recipes/*"],
       "css": [],
       "js": ["jquery.js", "finecooking.js"]
+    },
+    {
+      "matches": ["http://www.epicurious.com/recipes/food/views/*"],
+      "css": [],
+      "js": ["jquery.js", "epicurious.js"]
     }
   ]
 }

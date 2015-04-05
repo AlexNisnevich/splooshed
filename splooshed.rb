@@ -131,7 +131,9 @@ def preprocess_recipe_line(line)
     .downcase  # convert to lowercase for convenience
     .split(" ").reject {|w| DUMMY_WORDS.include?(w) }.join(" ")  # remove dummy words like "about"
     .split(",").first  # remove everything after commas
-    .sub("jalape??o", "jalapeno")
+    .split(" or ").first  # and after "or"
+    .sub("jalape??o", "jalapeno")  # and let's fix up common non-ASCII ingredient names too
+    .sub("cr??me fra??che", "creme fraiche")
 end
 
 def weight_by_food_grams(food_name, unit)

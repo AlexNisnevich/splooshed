@@ -29,6 +29,7 @@ synonyms:
   noodles: wheat pasta
   vinegar: wine  # an approximation
   apple cider vineger: apple juice  # ditto
+  creme fraiche: sour cream
 data:
   wheat:
     gallons_per_kg: 532.0222084
@@ -495,3 +496,4 @@ data:
   parsley:
   fish sauce:
   tortillas:
+  vegetable oil:
