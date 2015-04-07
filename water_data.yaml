@@ -455,7 +455,8 @@ data:
   eggs:
     gallons_per_kg: 871.768183631364
   salmon:
-    gallons_per_kg: 465.1  # rough estimate based on http://www.wonderwater.fi/wp-content/uploads/Wonderwater-menu.pdf
+    gallons_per_kg: 465.1
+    source: "rough estimate based on http://www.wonderwater.fi/wp-content/uploads/Wonderwater-menu.pdf"
   beef:
     gallons_per_kg: 4071.93314
   veal:
@@ -463,7 +464,8 @@ data:
   chicken:
     gallons_per_kg: 1141.99316
   pizza:
-    gallons_per_kg: 459.11  # http://www.waterfootprint.org/?page=files/productgallery
+    gallons_per_kg: 459.11
+    source: "http://www.waterfootprint.org/?page=files/productgallery"
   pine nuts:
     gallons_per_kg: 3595  # nut average
   cream:
