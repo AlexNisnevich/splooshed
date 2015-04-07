@@ -214,6 +214,18 @@ section:last-of-type {
 	padding: 0.5%;
 }
 
+@media screen and (max-width: 600px) {
+	.logoContainerBottom img, .logoContainerTop img {
+		height: auto;
+		width: 100%;
+	}
+
+	.logoContainerTop, .logoContainerBottom {
+		width: 95%;
+		margin: 0 auto;
+	}
+}
+
 .graphsContainer {
 	padding: 5px;
 }
@@ -239,6 +251,15 @@ canvas {
 	.graphsContainer div {
 		width: 95%;
 	}
+}
+
+.apiInfoText {
+	font-weight: bold; 
+	font-family: monospace;
+	 word-break: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
 }
 
 .copyright {
