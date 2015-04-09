@@ -1,23 +1,27 @@
 class RecipeLine
-  attr_accessor :food, :parse_result
+  include Logging
+  extend Logging
+
+  attr_accessor :food, :gallons
 
   def self.parse line
-    puts "----------------------------------------------------"
     begin
       recipe_line = self.new(line)
 
-      {
+      result = {
         :success => true,
         :input => line,
         :parsed_input => recipe_line.parse_result,
         :food => recipe_line.food.name,
         :gallons => recipe_line.gallons
       }
+      log_info "Result: #{result}"
+      result
     rescue => e
-      puts e
+      log_error e
       {
         :success => false,
-        :error => e.message.sub('uncaught throw ', ''),
+        :error => e.message.sub('uncaught throw ', '').gsub('"', ''),
         :input => line,
         :parsed_input => (recipe_line.parse_result rescue line)
       }
@@ -25,35 +29,37 @@ class RecipeLine
   end
 
   def initialize(line)
-    line = preprocess_recipe_line(line)
+    log_info "Input: #{line}"
+    @line = preprocess_recipe_line(line)
+    log_info "Processed into: #{@line}"
 
     begin
       # if Ingreedy parse fails, try again with everything before first number removed
-      result = Ingreedy.parse(line) rescue Ingreedy.parse(line.sub(/.*?(?=[0-9])/im, ""))
+      @parse = Ingreedy.parse(@line) rescue Ingreedy.parse(@line.sub(/.*?(?=[0-9])/im, ""))
     rescue
-      if is_negligible? line
-        @food = Food.new line
+      if is_negligible? @line
+        @food = Food.new @line
         @amount = 0.0
-        @parse_result = line
       else
         throw "Unable to parse line: #{line}"
       end
     end
 
-    puts "Parsed as: #{result.amount}, #{result.unit}, #{result.ingredient}"
+    log_info "Parsed as: #{@parse.amount}, #{@parse.unit}, #{@parse.ingredient}"
 
-    @food = Food.new result.ingredient
-    @amount = result.amount
-    @unit = result.unit
-    @parse_result = line.gsub(result.ingredient, @food.name)
-  end
+    @food = Food.new @parse.ingredient
+    @amount = @parse.amount
+    @unit = @parse.unit
 
-  def gallons
-    if @amount == 0.0
+    @gallons = if @amount == 0.0
       0.0
     else
       @food.gallons(@amount, @unit)
     end
+  end
+
+  def parse_result
+    @line.gsub(@parse.ingredient, @food.name) rescue @line
   end
 
   private

@@ -8,6 +8,7 @@ require 'dalli'
 require 'fuzzy_match'
 
 [
+  "logging.rb",
   "cache.rb",
   "constants.rb",
   "food.rb",

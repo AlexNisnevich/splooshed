@@ -1,4 +1,6 @@
 class Food
+  include Logging
+
   attr_accessor :name
 
   def initialize(name)
@@ -16,7 +18,8 @@ class Food
   private
 
   def gallons_water_per_kg
-    WaterData.instance.fuzzy_lookup(@name)
+    @name = WaterData.instance.fuzzy_food_lookup @name
+    WaterData.instance.gallons_per_kg @name
   end
 
   def lookup_ndbno(name)
@@ -27,7 +30,7 @@ class Food
         begin
           response = JSON.parse(open("http://api.nal.usda.gov/usda/ndb/search/?format=json&q=#{name}&max=25&offset=0&api_key=#{USDA_API_KEY}".gsub(" ", "%20")).read)
           foods = response["list"]["item"].reject {|m| IGNORED_FOOD_GROUPS.include?(m["group"])}
-          puts "Food found: #{foods.first["name"]}"
+          log_info "Food found: #{foods.first["name"]}"
           foods.first["ndbno"]
         rescue
           throw "Unknown food: #{name}"
@@ -47,7 +50,7 @@ class Food
       ndbno = begin
         lookup_ndbno(@name)
       rescue => e 
-        puts e.message
+        log_error e.message
         lookup_ndbno(@name.split(" ").last)
       end
 
@@ -58,11 +61,11 @@ class Food
         response["report"]["food"]["nutrients"].first["measures"]
       }
 
-      puts "Units of measure found: #{measures.map {|m| m["label"]}.join(", ")}"
+      log_info "Units of measure found: #{measures.map {|m| m["label"]}.join(", ")}"
       begin
         measure = measures.find {|m| measure_conversion(m["label"], expected_measure)}
         conversion = measure_conversion(measure["label"], expected_measure)
-        puts "Unit of measure selected: #{measure["label"]} [#{expected_measure} * #{conversion}]"
+        log_info "Unit of measure selected: #{measure["label"]} [#{expected_measure} * #{conversion}]"
         amount * measure["eqv"] * conversion / 1000
       rescue
         throw "Unknown unit of measurement: #{unit} of #{@name}"
