@@ -9,6 +9,7 @@ class Food
       .sub(/.*or.*(canola|vegetable).*oil/, "vegetable oil")
       .split(",").first  # remove everything after commas
       .split(" or ").first  # remove every after "or"
+      .split(" for ").first  # remove every after "for"
     log_info "Food name \"#{name}\" interpreted as \"#@name\""
   end
 
