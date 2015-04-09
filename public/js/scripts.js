@@ -123,6 +123,7 @@ $(document).ready(function() {
 
 	var worstFoodsOptions = { 
 		scaleFontColor: "#EEE", 
+		scaleFontSize: 16,
 		scaleGridLineColor: "#AAA",
 		graphTitle: "Least Water-Efficient Foods",
 		graphTitleFontFamily : "'Roboto'",
@@ -159,6 +160,7 @@ $(document).ready(function() {
 
 	var bestFoodsOptions = { 
 		scaleFontColor: "#EEE", 
+		scaleFontSize: 16,
 		scaleGridLineColor: "#AAA",
 		graphTitle: "Most Water-Efficient Foods",
 		graphTitleFontFamily : "'Roboto'",
