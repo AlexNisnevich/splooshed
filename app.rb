@@ -2,7 +2,7 @@ require 'sinatra'
 require 'json'
 require "stringex"
 
-require File.expand_path('../splooshed.rb', __FILE__)
+require File.expand_path('../lib/splooshed.rb', __FILE__)
 
 get '/' do
   File.read(File.join('public', 'index.html'))
