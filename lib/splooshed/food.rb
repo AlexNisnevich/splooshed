@@ -8,8 +8,8 @@ class Food
   end
 
   def gallons(amount, unit)
-    if unit.nil? && GALLONS_OF_WATER_FOR_UNITLESS_ITEMS.include?(food_name)
-      GALLONS_OF_WATER_FOR_UNITLESS_ITEMS[food_name] * amount
+    if unit.nil? && GALLONS_OF_WATER_FOR_UNITLESS_ITEMS.include?(@name)
+      GALLONS_OF_WATER_FOR_UNITLESS_ITEMS[@name] * amount
     else
       weight_in_kg(amount, unit) * gallons_water_per_kg
     end

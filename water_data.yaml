@@ -309,7 +309,7 @@ data:
   lemon juice:
     gallons_per_kg: 258.38  # an approximation from apples : apple juice :: lemons : lemon juice
   lime juice:
-    gallons_per_kg: 258.38
+    gallons_per_kg: 258.38  # see above
   grapefruit:
     gallons_per_kg: 147.3471469
   apples:
@@ -520,6 +520,12 @@ data:
     gallons_per_kg: 0
   tobacco:
     gallons_per_kg: 851.76
+  kale:
+    gallons_per_kg: 79.7
+    source: http://graphics.latimes.com/food-water-footprint/
+  blackberries:
+    gallons_per_kg: 148.9
+    source: http://graphics.latimes.com/food-water-footprint/
 
   # stuff we can't figure out
   bay leaf:
@@ -531,6 +537,7 @@ data:
   hot chili pepper:
   bell pepper:
   baking powder:
+  baking soda:
   yeast:
   lemongrass:
   vodka:
