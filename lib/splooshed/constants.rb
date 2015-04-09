@@ -52,5 +52,6 @@ GALLONS_OF_WATER_FOR_UNITLESS_ITEMS = {
 HARDCODED_NDBNOS = {
   "rice" => "20054",
   "canola oil" => "04582",
-  "vegetable oil" => "04582"
+  "vegetable oil" => "04582",
+  "corn starch" => "20027"
 }
