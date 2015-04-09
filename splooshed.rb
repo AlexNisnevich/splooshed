@@ -99,7 +99,6 @@ def parse_recipe_line(line)
     puts "Parsed as: #{result.amount}, #{result.unit}, #{result.ingredient}"
     food_name = result.ingredient.to_s.gsub(/\(.*\)/, "").strip  # remove everything inside parentheses
 
-    puts GALLONS_OF_WATER_FOR_UNITLESS_ITEMS[food_name]
     if result.unit.nil? && GALLONS_OF_WATER_FOR_UNITLESS_ITEMS.include?(food_name)
       gallons_per_unit = GALLONS_OF_WATER_FOR_UNITLESS_ITEMS[food_name]
 
