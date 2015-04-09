@@ -43,7 +43,7 @@ DUMMY_WORDS = [
   "about", "and",  # connecting words
   "freshly", "finely",  # adverbs
   "minced", "peeled", "cut", "chopped", "packed", "shaved", "squeezed", "shredded", "sliced", "toasted", "roasted",  # verbal adjectives
-  "fresh", "boneless", "lowfat", "low-fat", "low-sodium",  # misc adjectives
+  "fresh", "boneless", "skinless", "lowfat", "low-fat", "low-sodium",  # misc adjectives
   "Italian", "kosher",  # cultural adjectives
   "leaves", "tops", "bottoms"  # parts of food
 ]
