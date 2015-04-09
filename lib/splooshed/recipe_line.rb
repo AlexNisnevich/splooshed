@@ -35,15 +35,7 @@ class RecipeLine
 
     begin
       # if Ingreedy parse fails, try again with everything before first number removed
-
-      line_without_parens = @line.gsub(/ \(.*\)/, "")
-
       @parse = Ingreedy.parse(@line) rescue Ingreedy.parse(@line.sub(/.*?(?=[0-9])/im, ""))
-      parse_without_parens = Ingreedy.parse(line_without_parens) rescue Ingreedy.parse(line_without_parens.sub(/.*?(?=[0-9])/im, ""))
-
-      @parse.unit = parse_without_parens.unit
-
-      puts parse_without_parens
     rescue
       if is_negligible? @line
         @food = Food.new @line

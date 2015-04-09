@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AlexNisnevich/ingreedy.git
-  revision: fc21fc06233544c1ccd567952b72775da7866c46
+  revision: a2d052138a1896b151d7e7011e9151e2e88b4ff0
   specs:
     ingreedy (0.0.4)
       parslet (~> 1.5.0)
@@ -15,8 +15,8 @@ GEM
     ffi (1.9.8)
     fuzzy_match (2.1.0)
     hitimes (1.2.2)
-    listen (2.7.11)
-      celluloid (>= 0.15.2)
+    listen (2.10.0)
+      celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     parslet (1.5.0)

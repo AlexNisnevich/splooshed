@@ -29,8 +29,9 @@ class Food
   end
 
   def lookup_ndbno(name)
-    if HARDCODED_NDBNOS.include? name
-      return HARDCODED_NDBNOS[name]
+    puts HARDCODED_NDBNOS.keys
+    if HARDCODED_NDBNOS.keys.any? {|k| name.include? k }
+      return HARDCODED_NDBNOS.find {|k, v| name.include? k }.last  # (ruby weirdness - returns value of matching hash entry)
     else
       Cache.instance.get_and_cache("ndbno:#{name}") {
         begin

@@ -10,6 +10,7 @@ WEIGHTS_TO_KG = {
 
 VOLUME_CONVERSIONS = {
   "dash->pinch" => 1.0,
+  "strip->tbsp" => 1.0,  # in particular, a strip of peel
   "cup->fl oz" => 8.0,
   "cup->tbsp" => 16.0,
   "cup->tsp" => 48.0,
@@ -52,5 +53,7 @@ HARDCODED_NDBNOS = {
   "canola oil" => "04582",
   "vegetable oil" => "04582",
   "corn starch" => "20027",
-  "chinese rice vinegar" => "02068"
+  "chinese rice vinegar" => "02068",
+  "orange peel" => "09216",
+  "lemon peel" => "09156"
 }
