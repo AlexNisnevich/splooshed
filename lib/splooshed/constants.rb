@@ -15,11 +15,14 @@ VOLUME_TO_CANONICAL_VOLUME = {
 
 VOLUME_CONVERSIONS = {
   "dash->pinch" => 1.0,
+  "cup->fl oz" => 8.0,
   "cup->tablespoon" => 16.0,
   "cup->tbsp" => 16.0,
   "cup->teaspoon" => 48.0,
   "cup->tsp" => 48.0,
   "tablespoon->teaspoon" => 3.0,
+  "fl oz->tbsp" => 2.0,
+  "fl oz->tsp" => 6.0,
   "tbsp->tsp" => 3.0,
   "tbsp->tsp unpacked" => 3.0,
   "servings->medium" => 1.0,

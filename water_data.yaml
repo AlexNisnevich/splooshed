@@ -526,6 +526,24 @@ data:
   blackberries:
     gallons_per_kg: 148.9
     source: http://graphics.latimes.com/food-water-footprint/
+  pasta sauce:
+    gallons_per_kg: 102
+    source: http://www.scientificamerican.com/article/water-footprint/
+  gin:
+    gallons_per_kg: 121.8
+    source: The Green Blue Book, p.64
+  rum:
+    gallons_per_kg: 35.1
+    source: The Green Blue Book, p.64
+  tequila:
+    gallons_per_kg: 68.8
+    source: The Green Blue Book, p.64
+  vodka:
+    gallons_per_kg: 84.9
+    source: The Green Blue Book, p.65
+  whiskey:
+    gallons_per_kg: 457
+    source: The Green Blue Book, p.65
 
   # stuff we can't figure out
   bay leaf:
@@ -540,7 +558,6 @@ data:
   baking soda:
   yeast:
   lemongrass:
-  vodka:
   kimchi:
   sage:
   oregano:
