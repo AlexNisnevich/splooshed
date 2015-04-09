@@ -29,14 +29,27 @@ class Food
       Cache.instance.get_and_cache("ndbno:#{name}") {
         begin
           response = JSON.parse(open("http://api.nal.usda.gov/usda/ndb/search/?format=json&q=#{name}&max=25&offset=0&api_key=#{USDA_API_KEY}".gsub(" ", "%20")).read)
-          foods = response["list"]["item"].reject {|m| IGNORED_FOOD_GROUPS.include?(m["group"])}
-          log_info "Food found: #{foods.first["name"]}"
-          foods.first["ndbno"]
-        rescue
+          food = response["list"]["item"].select {|m| is_valid_usda_entry? m}.first
+          log_info "Food found: #{food["name"]}"
+          food["ndbno"]
+        rescue => e
           throw "Unknown food: #{name}"
         end
       }
     end
+  end
+
+  def is_valid_usda_entry? entry
+    if IGNORED_FOOD_GROUPS.include? entry["group"]
+      return false
+    end
+
+    unless entry["name"].include?(@name.split(" ").last)
+      log_error "Found food \"#{entry["name"]}\", but it didn't include the term \"#{@name.split(" ").last}\""
+      return false
+    end
+
+    true
   end
 
   def weight_in_kg(amount, unit)

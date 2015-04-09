@@ -53,5 +53,6 @@ HARDCODED_NDBNOS = {
   "rice" => "20054",
   "canola oil" => "04582",
   "vegetable oil" => "04582",
-  "corn starch" => "20027"
+  "corn starch" => "20027",
+  "chinese rice vinegar" => "02068"
 }

@@ -7,6 +7,11 @@ module Logging
     log(string, "[ERROR]")
   end
 
+  def log_and_throw_error(string)
+    log_error string
+    throw string
+  end
+
   private
 
   def log(string, type)
