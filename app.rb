@@ -9,26 +9,20 @@ get '/' do
 end
 
 get '/list_foods' do
-  # list all food names that don't have illegal characters ("?") and have gallons_per_kg defined
-  # and that match search term, if any
-  $water_data.select {|k, v| (!params["term"] || k.include?(params["term"])) && !k.include?("?") && v && v["gallons_per_kg"] }.keys.to_json
+  WaterData.instance.search(params["term"]).to_json
 end
 
 get '/food' do
   content_type :json
-  line = "#{request["inputAmount"]} #{request["inputUnit"]} of #{request["inputFood"]}".to_ascii
-  parse_recipe_line(line).to_json
+  FoodLine.parse(request["inputAmount"], request["inputUnit"], request["inputFood"]).to_json
 end
 
 post '/recipe_line' do
   content_type :json
-  data = request.body.read
-  parse_recipe_line(data.to_ascii).to_json
+  RecipeLine.parse(request.body.read).to_json
 end
 
 post '/recipe' do
   content_type :json
-  data = request.body.read
-  responses = data.split("\n").map {|l| parse_recipe_line l.to_ascii}
-  responses.to_json
+  Recipe.parse(request.body.read).to_json
 end
