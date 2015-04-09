@@ -8,25 +8,14 @@ WEIGHTS_TO_KG = {
   :pound => 0.453592
 }
 
-VOLUME_TO_CANONICAL_VOLUME = {
-  :tablespoon => "tbsp",
-  :teaspoon => "tsp"
-}
-
 VOLUME_CONVERSIONS = {
   "dash->pinch" => 1.0,
   "cup->fl oz" => 8.0,
-  "cup->tablespoon" => 16.0,
   "cup->tbsp" => 16.0,
-  "cup->teaspoon" => 48.0,
   "cup->tsp" => 48.0,
   "fl oz->tbsp" => 2.0,
   "fl oz->tsp" => 6.0,
-  "tablespoon->teaspoon" => 3.0,
-  "tablespoon->tsp" => 3.0,
-  "tbsp->teaspoon" => 3.0,
   "tbsp->tsp" => 3.0,
-  "tbsp->tsp unpacked" => 3.0,
   "servings->medium" => 1.0,
   "servings->med" => 1.0,
   "medium->fruit" => 1.0,
@@ -47,7 +36,7 @@ IGNORED_FOOD_GROUPS = [
 DUMMY_WORDS = [
   "about", "and",  # connecting words
   "freshly", "finely",  # adverbs
-  "minced", "peeled", "cut", "chopped", "packed", "shaved", "squeezed", "shredded", "sliced", "toasted", "roasted",  # verbal adjectives
+  "minced", "peeled", "cut", "chopped", "packed", "shaved", "squeezed", "shredded", "sliced", "toasted", "roasted", "unpacked", # verbal adjectives
   "fresh", "boneless", "skinless", "lowfat", "low-fat", "low-sodium",  # misc adjectives
   "Italian", "kosher",  # cultural adjectives
   "leaves", "tops", "bottoms"  # parts of food

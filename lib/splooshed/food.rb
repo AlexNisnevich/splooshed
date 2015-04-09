@@ -67,8 +67,6 @@ class Food
         lookup_ndbno(@name.split(" ").last)
       end
 
-      expected_measure = VOLUME_TO_CANONICAL_VOLUME[unit] || unit.to_s
-
       measures = Cache.instance.get_and_cache("measures:#{ndbno}") {
         response = JSON.parse(open("http://api.nal.usda.gov/usda/ndb/reports/?format=json&ndbno=#{ndbno}&max=25&offset=0&api_key=#{USDA_API_KEY}").read)
         response["report"]["food"]["nutrients"].first["measures"]
@@ -76,19 +74,20 @@ class Food
 
       log_info "Units of measure found: #{measures.map {|m| m["label"]}.join(", ")}"
       begin
-        measure = measures.find {|m| measure_conversion(m["label"], expected_measure)}
-        conversion = measure_conversion(measure["label"], expected_measure)
-        log_info "Unit of measure selected: #{measure["label"]} [#{expected_measure} * #{conversion}]"
+        measure = measures.find {|m| measure_conversion(m["label"], unit)}
+        conversion = measure_conversion(measure["label"], unit)
+        log_info "Unit of measure selected: #{measure["label"]} [#{unit} * #{conversion}]"
         amount * measure["eqv"] * conversion / 1000
-      rescue
+      rescue => e
+        puts e
         throw "Unknown unit of measurement: #{unit} of #{@name}"
       end
     end
   end
 
   def measure_conversion(found_measure, expected_measure)
-    found_measure = found_measure.gsub(/\(.*\)/, "").strip
-    expected_measure = expected_measure.gsub(/\(.*\)/, "").strip
+    found_measure = to_canonical_measure(found_measure)
+    expected_measure = to_canonical_measure(expected_measure)
 
     if found_measure.include? expected_measure
       1
@@ -99,5 +98,18 @@ class Food
     else
       nil
     end
+  end
+
+  def to_canonical_measure(measure)
+    volume_to_canonical_volume = {
+      "tablespoon" => "tbsp",
+      "teaspoon" => "tsp"
+    }
+
+    measure = measure.to_s
+      .gsub(/\(.*\)/, "")  # remove expressions in parens
+      .strip  # remove excess whitespace
+      .split(" ").reject {|w| DUMMY_WORDS.include?(w.sub(",", "")) }.join(" ")  # remove dummy words
+    measure = volume_to_canonical_volume[measure] || measure
   end
 end
