@@ -11,15 +11,20 @@ class WaterData
     @data.select {|k, v| (!term || k.include?(term)) && !k.include?("?") && v && v["gallons_per_kg"] }.keys
   end
 
-  def fuzzy_lookup(food)
-    key = FuzzyMatch.new(@data.keys, :threshold => 0.1).find(food)
-    key = FuzzyMatch.new(@data.keys, :threshold => 0.2).find(food.split(" ").last) unless key
+  def gallons_per_kg(food)
     begin
-      puts "Water usage record found matching #{@name}: #{key}"
-      @data[key]["gallons_per_kg"]
-    rescue => e
-      throw "No water usage data found for food: #{@name}"
+      @data[food]["gallons_per_kg"]
+    rescue
+      throw "No water usage data found for food: #{@food}"
     end
+  end
+
+  def fuzzy_food_lookup(food)
+    key = FuzzyMatch.new(@data.keys, :threshold => 0.1).find(food) || FuzzyMatch.new(@data.keys, :threshold => 0.2).find(food.split(" ").last)
+    unless key
+      throw "No water usage data found for food: #{@food}" 
+    end
+    key
   end
 
   private

@@ -9,14 +9,15 @@ class Food
     if unit.nil? && GALLONS_OF_WATER_FOR_UNITLESS_ITEMS.include?(food_name)
       GALLONS_OF_WATER_FOR_UNITLESS_ITEMS[food_name] * amount
     else
-      weight_in_kg(amount, unit) * gallons_water_per_kg
+      gallons_water_per_kg * weight_in_kg(amount, unit)
     end
   end
 
   private
 
   def gallons_water_per_kg
-    WaterData.instance.fuzzy_lookup(@name)
+    @name = WaterData.instance.fuzzy_food_lookup @name
+    WaterData.instance.gallons_per_kg @name
   end
 
   def lookup_ndbno(name)

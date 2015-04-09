@@ -1,5 +1,5 @@
 class RecipeLine
-  attr_accessor :food, :parse_result
+  attr_accessor :food, :gallons
 
   def self.parse line
     puts "----------------------------------------------------"
@@ -25,35 +25,35 @@ class RecipeLine
   end
 
   def initialize(line)
-    line = preprocess_recipe_line(line)
+    @line = preprocess_recipe_line(line)
 
     begin
       # if Ingreedy parse fails, try again with everything before first number removed
-      result = Ingreedy.parse(line) rescue Ingreedy.parse(line.sub(/.*?(?=[0-9])/im, ""))
+      @parse = Ingreedy.parse(@line) rescue Ingreedy.parse(@line.sub(/.*?(?=[0-9])/im, ""))
     rescue
-      if is_negligible? line
-        @food = Food.new line
+      if is_negligible? @line
+        @food = Food.new @line
         @amount = 0.0
-        @parse_result = line
       else
         throw "Unable to parse line: #{line}"
       end
     end
 
-    puts "Parsed as: #{result.amount}, #{result.unit}, #{result.ingredient}"
+    puts "Parsed as: #{@parse.amount}, #{@parse.unit}, #{@parse.ingredient}"
 
-    @food = Food.new result.ingredient
-    @amount = result.amount
-    @unit = result.unit
-    @parse_result = line.gsub(result.ingredient, @food.name)
-  end
+    @food = Food.new @parse.ingredient
+    @amount = @parse.amount
+    @unit = @parse.unit
 
-  def gallons
-    if @amount == 0.0
+    @gallons = if @amount == 0.0
       0.0
     else
       @food.gallons(@amount, @unit)
     end
+  end
+
+  def parse_result
+    @line.gsub(@parse.ingredient, @food.name) rescue @line
   end
 
   private
