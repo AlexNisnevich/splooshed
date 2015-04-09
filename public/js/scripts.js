@@ -122,6 +122,7 @@ $(document).ready(function() {
 	}
 
 	var worstFoodsOptions = { 
+		rotateLabels: 45,
 		scaleFontColor: "#EEE", 
 		scaleFontSize: 16,
 		scaleGridLineColor: "#AAA",
@@ -159,6 +160,7 @@ $(document).ready(function() {
 
 
 	var bestFoodsOptions = { 
+		rotateLabels: 45,
 		scaleFontColor: "#EEE", 
 		scaleFontSize: 16,
 		scaleGridLineColor: "#AAA",
