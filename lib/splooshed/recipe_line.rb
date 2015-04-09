@@ -21,7 +21,7 @@ class RecipeLine
       log_error e
       {
         :success => false,
-        :error => e.message.sub('uncaught throw ', ''),
+        :error => e.message.sub('uncaught throw ', '').gsub('"', ''),
         :input => line,
         :parsed_input => (recipe_line.parse_result rescue line)
       }
