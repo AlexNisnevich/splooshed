@@ -41,6 +41,9 @@ synonyms:
   queso fresco: cheese
   bacon: pork
   sausage: pork  # let's just assume
+  sesame seed oil: sesame oil
+  bourbon: whiskey
+  scotch: whiskey
 data:
   wheat:
     gallons_per_kg: 532.0222084
