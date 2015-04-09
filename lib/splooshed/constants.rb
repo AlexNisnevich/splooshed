@@ -40,8 +40,12 @@ IGNORED_FOOD_GROUPS = [
 ]
 
 DUMMY_WORDS = [
-  "about", "and", "fresh", "minced", "peeled", "cut", "chopped", "packed", "shaved", "freshly",
-  "squeezed", "Italian", "leaves", "finely", "boneless", "shredded", "sliced", "toasted", "kosher"
+  "about", "and",  # connecting words
+  "freshly", "finely",  # adverbs
+  "minced", "peeled", "cut", "chopped", "packed", "shaved", "squeezed", "shredded", "sliced", "toasted", "roasted"  # verbal adjectives
+  "fresh", "boneless", "lowfat", "low-fat", "low-sodium"  # misc adjectives
+  "Italian", "kosher",  # cultural adjectives
+  "leaves", "tops", "bottoms"  # parts of food
 ]
 
 GALLONS_OF_WATER_FOR_UNITLESS_ITEMS = {
