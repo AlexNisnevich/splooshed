@@ -516,6 +516,8 @@ data:
     gallons_per_kg: 820  # rough estimate based on whole eggs and egg yolks
   mushrooms:
     gallons_per_kg: 0
+  tobacco:
+    gallons_per_kg: 851.76
 
   # stuff we can't figure out
   bay leaf:
@@ -524,6 +526,7 @@ data:
   fish sauce:
   honey:
   jalapeno:
+  hot chili pepper:
   bell pepper:
   baking powder:
   yeast:

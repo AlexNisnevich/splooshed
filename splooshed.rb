@@ -35,6 +35,7 @@ VOLUME_CONVERSIONS = {
   "medium->fruit" => 1.0,
   "medium->clove" => 1.0,
   "large->pepper" => 1.0,
+  "small->pepper" => 0.7,
   "large->cup chopped" => 1.0,
   "quart->cup" => 4.0
 }
@@ -50,6 +51,11 @@ DUMMY_WORDS = [
   "about", "and", "fresh", "minced", "peeled", "cut", "chopped", "packed", "shaved", "freshly",
   "squeezed", "Italian", "leaves", "finely", "boneless", "shredded", "sliced", "toasted", "kosher"
 ]
+
+GALLONS_OF_WATER_FOR_UNITLESS_ITEMS = {
+  "cigarette" => 0.352,
+  "cigarettes" => 0.352
+}
 
 $dc = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "localhost:11211").split(","),
                     {:username => ENV["MEMCACHIER_USERNAME"],
@@ -92,21 +98,35 @@ def parse_recipe_line(line)
 
     puts "Parsed as: #{result.amount}, #{result.unit}, #{result.ingredient}"
     food_name = result.ingredient.to_s.gsub(/\(.*\)/, "").strip  # remove everything inside parentheses
-    weight_in_kg = result.amount * weight_by_food_grams(food_name, result.unit) / 1000.0
 
-    gallons_lookup_result = lookup_gallons_water_per_kg_by_food(food_name)
-    gallons_water_per_kg = gallons_lookup_result[:gallons_per_kg]
-    food_name = gallons_lookup_result[:matched_name]
-    
-    {
-      :success => true,
-      :input => line,
-      :parsed_input => preprocessed_line.gsub(result.ingredient, food_name),
-      :food => food_name,
-      :gallons => gallons_water_per_kg * weight_in_kg,
-      :weight_in_kg => weight_in_kg,
-      :gallons_water_per_kg => gallons_water_per_kg
-    }
+    puts GALLONS_OF_WATER_FOR_UNITLESS_ITEMS[food_name]
+    if result.unit.nil? && GALLONS_OF_WATER_FOR_UNITLESS_ITEMS.include?(food_name)
+      gallons_per_unit = GALLONS_OF_WATER_FOR_UNITLESS_ITEMS[food_name]
+
+      {
+        :success => true,
+        :input => line,
+        :parsed_input => preprocessed_line.gsub(result.ingredient, food_name),
+        :food => food_name,
+        :gallons => gallons_per_unit * result.amount
+      }
+    else
+      weight_in_kg = result.amount * weight_by_food_grams(food_name, result.unit) / 1000.0
+
+      gallons_lookup_result = lookup_gallons_water_per_kg_by_food(food_name)
+      gallons_water_per_kg = gallons_lookup_result[:gallons_per_kg]
+      food_name = gallons_lookup_result[:matched_name]
+      
+      {
+        :success => true,
+        :input => line,
+        :parsed_input => preprocessed_line.gsub(result.ingredient, food_name),
+        :food => food_name,
+        :gallons => gallons_water_per_kg * weight_in_kg,
+        :weight_in_kg => weight_in_kg,
+        :gallons_water_per_kg => gallons_water_per_kg
+      }
+    end
   rescue => e
     puts e
     {
