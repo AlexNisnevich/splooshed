@@ -1,5 +1,6 @@
 class Cache
   include Singleton
+  include Logging
 
   def initialize
     @dc = Dalli::Client.new(
@@ -21,7 +22,7 @@ class Cache
       value
     else
       value = yield
-      try_set(key, value)
+      try_set(key, value) if value
       value
     end
   end
@@ -31,15 +32,19 @@ class Cache
   def try_lookup(key)
     begin
       value = @dc.get(key)
-      puts "Retrieving from cache: #{key} => #{value}" if value
+      log_info "Retrieving from cache: #{key} => #{value}" if value
       value
     rescue => e
-      puts e
+      log_error e
       nil
     end
   end
 
   def try_set(key, value)
-    @dc.set(key, value) rescue nil
+    begin
+      @dc.set(key, value)
+      log_info "Wrote to cache: #{key} => #{value}" 
+    rescue
+    end
   end
 end

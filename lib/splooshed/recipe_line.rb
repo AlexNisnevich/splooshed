@@ -1,20 +1,24 @@
 class RecipeLine
+  include Logging
+  extend Logging
+
   attr_accessor :food, :gallons
 
   def self.parse line
-    puts "----------------------------------------------------"
     begin
       recipe_line = self.new(line)
 
-      {
+      result = {
         :success => true,
         :input => line,
         :parsed_input => recipe_line.parse_result,
         :food => recipe_line.food.name,
         :gallons => recipe_line.gallons
       }
+      log_info "Result: #{result}"
+      result
     rescue => e
-      puts e
+      log_error e
       {
         :success => false,
         :error => e.message.sub('uncaught throw ', ''),
@@ -25,7 +29,9 @@ class RecipeLine
   end
 
   def initialize(line)
+    log_info "Input: #{line}"
     @line = preprocess_recipe_line(line)
+    log_info "Processed into: #{@line}"
 
     begin
       # if Ingreedy parse fails, try again with everything before first number removed
@@ -39,7 +45,7 @@ class RecipeLine
       end
     end
 
-    puts "Parsed as: #{@parse.amount}, #{@parse.unit}, #{@parse.ingredient}"
+    log_info "Parsed as: #{@parse.amount}, #{@parse.unit}, #{@parse.ingredient}"
 
     @food = Food.new @parse.ingredient
     @amount = @parse.amount

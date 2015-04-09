@@ -15,14 +15,14 @@ class WaterData
     begin
       @data[food]["gallons_per_kg"]
     rescue
-      throw "No water usage data found for food: #{@food}"
+      throw "No water usage data found for food: #{food}"
     end
   end
 
   def fuzzy_food_lookup(food)
     key = FuzzyMatch.new(@data.keys, :threshold => 0.1).find(food) || FuzzyMatch.new(@data.keys, :threshold => 0.2).find(food.split(" ").last)
     unless key
-      throw "No water usage data found for food: #{@food}" 
+      throw "No water usage data found for food: #{food}" 
     end
     key
   end
