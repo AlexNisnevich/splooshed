@@ -180,7 +180,7 @@ $(document).ready(function() {
 	};
 	var bestFoodsctx = $("#bestFoods").get(0).getContext("2d");
 	var bestFoodsData = {
-		labels: ["Carrots and Turnips", "Tomatoes", "Watermelon", "Lettuce", "Pineapples", "Tomato Juice", "Onions", "Cranberries", "Cabbage", "Cauliflowers and Broccoli"],
+		labels: ["Carrots & Turnips", "Tomatoes", "Watermelon", "Lettuce", "Pineapples", "Tomato Juice", "Onions", "Cranberries", "Cabbage", "Cauliflower & Broccoli"],
 		datasets: [
 			{
 				label: "Most Water-Efficient Foods",
