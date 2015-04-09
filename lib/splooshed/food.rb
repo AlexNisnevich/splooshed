@@ -4,7 +4,7 @@ class Food
   attr_accessor :name
 
   def initialize(name)
-    @name = name.to_s.gsub(/\(.*\)/, "")  # remove everything inside parentheses
+    @name = name.to_s
       .strip  # remove excess space
       .sub(/.*or.*(canola|vegetable).*oil/, "vegetable oil")
       .split(",").first  # remove everything after commas
@@ -50,7 +50,7 @@ class Food
       return false
     end
 
-    unless entry["name"].include?(@name.split(" ").last)
+    unless (entry["name"].downcase + "s").include?(@name.split(" ").last)
       log_error "Found food \"#{entry["name"]}\", but it didn't include the term \"#{@name.split(" ").last}\""
       return false
     end

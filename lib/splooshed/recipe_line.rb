@@ -35,7 +35,15 @@ class RecipeLine
 
     begin
       # if Ingreedy parse fails, try again with everything before first number removed
+
+      line_without_parens = @line.gsub(/ \(.*\)/, "")
+
       @parse = Ingreedy.parse(@line) rescue Ingreedy.parse(@line.sub(/.*?(?=[0-9])/im, ""))
+      parse_without_parens = Ingreedy.parse(line_without_parens) rescue Ingreedy.parse(line_without_parens.sub(/.*?(?=[0-9])/im, ""))
+
+      @parse.unit = parse_without_parens.unit
+
+      puts parse_without_parens
     rescue
       if is_negligible? @line
         @food = Food.new @line
@@ -65,6 +73,7 @@ class RecipeLine
   private
 
   def preprocess_recipe_line(line)
+    line = remove_parens(line)
     line
       .to_ascii  # to avoid errors further in pipeline, converts non-ascii chars to "??" or "???"
       .downcase  # convert to lowercase for convenience
@@ -86,5 +95,11 @@ class RecipeLine
 
   def is_negligible?(line)
     line.split(" ").length == 1 || line.include?("optional") || line == "kosher salt"
+  end
+
+  def remove_parens(str)
+    # http://stackoverflow.com/a/1952970
+    while str.gsub!(/\([^()]*?\)/, ''); end
+    str
   end
 end
