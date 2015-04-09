@@ -69,10 +69,6 @@ class RecipeLine
       .to_ascii  # to avoid errors further in pipeline, converts non-ascii chars to "??" or "???"
       .downcase  # convert to lowercase for convenience
       .split(" ").reject {|w| DUMMY_WORDS.include?(w.sub(",", "")) }.join(" ")  # remove dummy words
-      .split(",").first  # remove everything after commas
-      .sub("vegetable or canola", "canola")  # fix up common "or" statements
-      .sub("canola or vegetable", "canola")
-      .split(" or ").first  # remove every after "or"
       .sub("jalape??o", "jalapeno")  # and let's fix up common non-ASCII ingredient names too
       .sub("cr??me fra??che", "creme fraiche")
       .sub("1???2", "1/2")  # most common single-character fractions

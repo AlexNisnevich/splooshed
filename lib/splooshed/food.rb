@@ -4,7 +4,12 @@ class Food
   attr_accessor :name
 
   def initialize(name)
-    @name = name.to_s.gsub(/\(.*\)/, "").strip  # remove everything inside parentheses
+    @name = name.to_s.gsub(/\(.*\)/, "")  # remove everything inside parentheses
+      .strip  # remove excess space
+      .sub(/.*or.*(canola|vegetable).*oil/, "vegetable oil")
+      .split(",").first  # remove everything after commas
+      .split(" or ").first  # remove every after "or"
+    log_info "Food name \"#{name}\" interpreted as \"#@name\""
   end
 
   def gallons(amount, unit)
